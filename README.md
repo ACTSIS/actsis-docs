@@ -1,10 +1,10 @@
 ![image](https://repository-images.githubusercontent.com/236449101/e89c31b2-a180-4258-9f67-608b4050c484)
 
-[![GitHub tag](https://img.shields.io/github/tag/infinum/eightshift-docs.svg?style=for-the-badge)](https://github.com/infinum/eightshift-docs)
-[![GitHub stars](https://img.shields.io/github/stars/infinum/eightshift-docs.svg?style=for-the-badge&label=Stars)](https://github.com/infinum/eightshift-docs/)
-[![license](https://img.shields.io/github/license/infinum/eightshift-docs.svg?style=for-the-badge)](https://github.com/infinum/eightshift-docs)
+[![GitHub tag](https://img.shields.io/github/tag/actsis/actsis-docs.svg?style=for-the-badge)](https://github.com/actsis/actsis-docs)
+[![GitHub stars](https://img.shields.io/github/stars/actsis/actsis-docs.svg?style=for-the-badge&label=Stars)](https://github.com/actsis/actsis-docs/)
+[![license](https://img.shields.io/github/license/actsis/actsis-docs.svg?style=for-the-badge)](https://github.com/actsis/actsis-docs)
 
-# Eightshift Docs
+# Actsis Docs
 
 A documentation website for Eightshift open source projects.
 

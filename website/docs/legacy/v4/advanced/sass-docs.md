@@ -23,7 +23,7 @@ If you don't use our full build for some reason and want only to use Eightshift 
 ```js
 resolve: {
   alias: {
-    EighshiftFrontendLibs: path.resolve('node_modules', '@eightshift', 'frontend-libs', 'styles', 'scss', 'eightshift-frontend-libs.scss'),
+    EighshiftFrontendLibs: path.resolve('node_modules', '@actsis', 'frontend-libs', 'styles', 'scss', 'eightshift-frontend-libs.scss'),
   }
 }
 ```
@@ -37,5 +37,5 @@ and then importing it like this:
 or you can import it directly like this, but be careful where your node_modules folder is located:
 
 ```scss
-@import 'node_modules/@eightshift/frontend-libs/styles/scss/eightshift-frontend-libs.scss';
+@import 'node_modules/@actsis/frontend-libs/styles/scss/eightshift-frontend-libs.scss';
 ```

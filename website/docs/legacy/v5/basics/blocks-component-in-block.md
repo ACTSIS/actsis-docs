@@ -308,7 +308,7 @@ But in all places in your component where you use `setAttributes` you must use [
 
 ```js
 
-import { camelize } from '@eightshift/frontend-libs/scripts/helpers';
+import { camelize } from '@actsis/frontend-libs/scripts/helpers';
 
 <ToggleControl
 	 label={'Custom Label'}
@@ -495,7 +495,7 @@ In the `components` key, you must provide components that you are going to be us
 **Block heading-editor.js:**
 ```js
 import React from 'react';
-import { props } from '@eightshift/frontend-libs/scripts/editor';
+import { props } from '@actsis/frontend-libs/scripts/editor';
 import { HeadingEditor as HeadingEditorComponent } from '../../../components/heading/components/heading-editor';
 import manifest from './../manifest.json';
 
@@ -573,7 +573,7 @@ In the `heading` component we are using the `typography` component but we are no
 
 ```js
 import React from 'react';
-import { props } from '@eightshift/frontend-libs/scripts/editor';
+import { props } from '@actsis/frontend-libs/scripts/editor';
 import { TypographyEditor } from './../../typography/components/typography-editor';
 import manifest from './../manifest.json';
  
