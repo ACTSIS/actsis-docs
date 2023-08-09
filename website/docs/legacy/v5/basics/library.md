@@ -18,7 +18,7 @@ Check out our documentation and import what you need from Eightshift Frontend Li
 Sass mixing, functions, and helpers are located in Eightshift Frontend Libs. Therefore, if you are using our Webpack build, you are all set. You can use it by importing it into your project like this:
 
 ```scss
-@import '@eightshift/frontend-libs/styles/index.scss';
+@import '@actsis/frontend-libs/styles/index.scss';
 ```
 
 But if you are using our default `setup_theme` setup, you are all set. Eightshift Frontend Libs are in your project, injected in the `_shared.scss` file.

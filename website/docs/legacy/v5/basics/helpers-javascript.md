@@ -15,7 +15,7 @@ Returns a camel-cased string.
 **Usage:**
 
 ```js
-import { checkAttr } from '@eightshift/frontend-libs/scripts/helpers';
+import { checkAttr } from '@actsis/frontend-libs/scripts/helpers';
 
 camelize('New super Test-title');
 ```
@@ -39,7 +39,7 @@ Checks whether the attributes exist in the attributes list. If the value is not 
 **Usage:**
 
 ```js
-	import { checkAttr } from '@eightshift/frontend-libs/scripts/helpers';
+	import { checkAttr } from '@actsis/frontend-libs/scripts/helpers';
 
 	checkAttr('buttonUse', attributes, manifest, componentName, undefinedAllowed);
 ```
@@ -97,7 +97,7 @@ Map and check attributes for responsive object from `responsiveAttributes` prope
 **Usage:**
 
 ```js
-	import { checkAttrResponsive } from '@eightshift/frontend-libs/scripts/helpers';
+	import { checkAttrResponsive } from '@actsis/frontend-libs/scripts/helpers';
 
 	checkAttrResponsive('headingContentSpacing', attributes, manifest, componentName, undefinedAllowed);
 ```
@@ -120,7 +120,7 @@ Used to set and get cookie values.
 **Usage:**
 
 ```js
-	import { cookies } from '@eightshift/frontend-libs/scripts/helpers';
+	import { cookies } from '@actsis/frontend-libs/scripts/helpers';
 
 	cookies.setCookie('gdpr', '2', cookies.setOneDay(), '/');
 
@@ -137,7 +137,7 @@ Debounces the provided function. For more information, check [this blog post](ht
 **Usage:**
 
 ```js
-	import { debounce } from '@eightshift/frontend-libs/scripts/helpers';
+	import { debounce } from '@actsis/frontend-libs/scripts/helpers';
 
 	debounce(() => {
 		// callback function.
@@ -151,7 +151,7 @@ Checks if your browser's navigator is a specific device.
 **Usage:**
 
 ```js
-	import { device } from '@eightshift/frontend-libs/scripts/helpers';
+	import { device } from '@actsis/frontend-libs/scripts/helpers';
 
 	device.iPhone();
 ```
@@ -165,7 +165,7 @@ Used to get (require) all the files using the `require.context` method. It will 
 **Usage:**
 
 ```js
-	import { dynamicImport } from '@eightshift/frontend-libs/scripts/helpers';
+	import { dynamicImport } from '@actsis/frontend-libs/scripts/helpers';
 
 	dynamicImport(require.context('./../../custom', true, /assets\/index.js$/));
 ```
@@ -179,7 +179,7 @@ Returns the height of the element measured by the height of its children.
 **Usage:**
 
 ```js
-import { dynamicImport } from '@eightshift/frontend-libs/scripts/helpers';
+import { dynamicImport } from '@actsis/frontend-libs/scripts/helpers';
 
 elementChildrenHeight('.js-item');
 ```
@@ -201,7 +201,7 @@ Takes the provided string and removes special characters. Characters that will b
 **Usage:**
 
 ```js
-	import { escapeString } from '@eightshift/frontend-libs/scripts/helpers';
+	import { escapeString } from '@actsis/frontend-libs/scripts/helpers';
 
 	escapeString.escapeString('Special string');
 ```
@@ -220,7 +220,7 @@ Useful if you want to show how the responsive behavior looks in the editor.
 **Usage:**
 
 ```js
-	import { responsiveSelectors } from '@eightshift/frontend-libs/scripts/helpers';
+	import { responsiveSelectors } from '@actsis/frontend-libs/scripts/helpers';
 
 	responsiveSelectors($attributes['width'], 'width', $blockClass);
 ```
@@ -244,7 +244,7 @@ Returns BEM selector for HTML class and checks if the condition part is set.
 **Usage:**
 
 ```js
-	import { selector } from '@eightshift/frontend-libs/scripts/helpers';
+	import { selector } from '@actsis/frontend-libs/scripts/helpers';
 
 	selector(!(buttonContent && buttonUrl), `${componentClass}-placeholder`);
 
@@ -273,7 +273,7 @@ Use this hook to filter the global colors out of the component or block manifest
 **Usage:**
 
 ```js
-import { getOptions } from '@eightshift/frontend-libs/scripts/editor';
+import { getOptions } from '@actsis/frontend-libs/scripts/editor';
 
 <ColorPaletteCustom
 		label={
@@ -301,7 +301,7 @@ The components must have the same option names as attribute standard with `compo
 **Usage:**
 
 ```js
-import { getOptions } from '@eightshift/frontend-libs/scripts/editor';
+import { getOptions } from '@actsis/frontend-libs/scripts/editor';
 
 <SelectControl
 	label={
@@ -325,7 +325,7 @@ Use this hook to read editor-color-palette colors directly from WP built-in stor
 **Usage:**
 
 ```js
-	import { getPaletteColors } from '@eightshift/frontend-libs/scripts/editor';
+	import { getPaletteColors } from '@actsis/frontend-libs/scripts/editor';
 
 	getPaletteColors();
 ```
@@ -384,7 +384,7 @@ const manifestGlobal = {
 **Usage:**
 
 ```js
-import { getUnique } from '@eightshift/frontend-libs/scripts/editor';
+import { getUnique } from '@actsis/frontend-libs/scripts/editor';
 import globalSettings from './../../manifest.json';
 
 outputCssVariablesGlobal(globalSettings);
@@ -434,7 +434,7 @@ Return unique ID for block processing.
 
 **Usage:**
 ```js
-import { getUnique } from '@eightshift/frontend-libs/scripts/editor';
+import { getUnique } from '@actsis/frontend-libs/scripts/editor';
 
 getUnique();
 ```
@@ -453,7 +453,7 @@ Used to set attributes on all innerBlocks. This value will be stored in the bloc
 
 ```js
 	import { useSelect } from '@wordpress/data';
-	import { overrideInnerBlockAttributes } from '@eightshift/frontend-libs/scripts/editor';
+	import { overrideInnerBlockAttributes } from '@actsis/frontend-libs/scripts/editor';
 
 	useSelect((select) => {
 		overrideInnerBlockAttributes(
@@ -474,7 +474,7 @@ Used to set attributes on all innerBlocks preset only for simple wrapper setup. 
 
 ```js
 	import { useSelect } from '@wordpress/data';
-	import { overrideInnerBlockSimpleWrapperAttributes } from '@eightshift/frontend-libs/scripts/editor';
+	import { overrideInnerBlockSimpleWrapperAttributes } from '@actsis/frontend-libs/scripts/editor';
 
 	useSelect((select) => {
 		overrideInnerBlockSimpleWrapperAttributes(
@@ -512,7 +512,7 @@ const componentName = 'button';
 **Usage:**
 
 ```js
-import { props } from '@eightshift/frontend-libs/scripts/editor';
+import { props } from '@actsis/frontend-libs/scripts/editor';
 
 {...props(attributes, blockName, '', true)}
 
@@ -552,7 +552,7 @@ Converts the first letter of a string to uppercase.
 **Usage:**
 
 ```js
-	import { ucfirst } from '@eightshift/frontend-libs/scripts/editor';
+	import { ucfirst } from '@actsis/frontend-libs/scripts/editor';
 
 	ucfirst('custom');
 ```

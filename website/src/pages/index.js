@@ -19,9 +19,9 @@ export default function Home() {
 			wrapperClassName='es-footer-white'
 		>
 			<Hero
-				title='Eightshift Development Kit'
-				subtitle='All the tools you need to start building a modern WordPress project, using all the latest front end development tools.'
-				buttonLabel='Get started'
+				title='ACTSIS Docs'
+				subtitle='Un sitio web de documentación para servicios de ACTSIS.'
+				buttonLabel='Empezar'
 				buttonUrl='#get-started'
 				imageUrl='/img/homepage/w-logo.svg'
 				gray

@@ -32,7 +32,7 @@ module.exports = (env, argv) => {
   };
 
   // Generate webpack config for this project using options object.
-  const project = require('./node_modules/@eightshift/frontend-libs/webpack')(argv.mode, projectConfig);
+  const project = require('./node_modules/@actsis/frontend-libs/webpack')(argv.mode, projectConfig);
 
   return {
     ...project,

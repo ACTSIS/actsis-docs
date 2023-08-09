@@ -19,7 +19,7 @@ There are a few differences between the JavaScript and PHP implementation due to
 **typography-editor.js**
 ```js
 import React, { useMemo } from 'react';
-import { outputCssVariables, getUnique } from '@eightshift/frontend-libs/scripts/editor';
+import { outputCssVariables, getUnique } from '@actsis/frontend-libs/scripts/editor';
 import manifest from '../manifest.json';
 import globalManifest from './../../../manifest.json';
 

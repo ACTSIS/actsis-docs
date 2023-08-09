@@ -34,7 +34,7 @@ function BlogListPageContent(props) {
 
 	return (
 		<BlogLayout>
-			<h1 className='es-big-title'>Typing as <wbr /> we code</h1>
+			<h1 className='es-big-title'>Escribiendo mientras<wbr /> codificamos</h1>
 
 			<div className='es-blog-grid'>
 				<BlogPostItems items={items} />

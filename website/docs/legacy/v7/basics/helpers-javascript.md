@@ -5,7 +5,7 @@ title: JavaScript
 
 [![docs-source](https://img.shields.io/badge/source-eightshift--frontend--libs-yellow?style=for-the-badge&logo=javascript&labelColor=2a2a2a)](https://github.com/infinum/eightshift-frontend-libs/tree/6.0.0/blocks/init/src/blocks/)
 
-All JavaScript helpers can be imported from the `@eightshift/frontend-libs/scripts` folder, so you don't need to think about the internal folder structure of Eightshift Frontend Libs. If you want multiple functions imported just concatenate them in the import like this:
+All JavaScript helpers can be imported from the `@actsis/frontend-libs/scripts` folder, so you don't need to think about the internal folder structure of Eightshift Frontend Libs. If you want multiple functions imported just concatenate them in the import like this:
 
 ```js
 import {
@@ -13,7 +13,7 @@ import {
 	checkAttr,
 	props,
 	...
-} from '@eightshift/frontend-libs/scripts';
+} from '@actsis/frontend-libs/scripts';
 ```
 
 # [Editor helpers](https://github.com/infinum/eightshift-frontend-libs/tree/6.0.0/scripts/editor)

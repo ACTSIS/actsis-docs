@@ -579,7 +579,7 @@ In the `components` key, you must provide components that you are going to be us
 
 ```js
 import React from 'react';
-import { props } from '@eightshift/frontend-libs/scripts';
+import { props } from '@actsis/frontend-libs/scripts';
 import { HeadingEditor as HeadingEditorComponent } from '../../../components/heading/components/heading-editor';
 
 export const HeadingEditor = ({ attributes, setAttributes }) => {
@@ -643,7 +643,7 @@ In the `heading` component we are using the `typography` component but we are no
 
 ```js
 import React from 'react';
-import { props } from '@eightshift/frontend-libs/scripts';
+import { props } from '@actsis/frontend-libs/scripts';
 import { TypographyEditor } from './../../typography/components/typography-editor';
 import manifest from './../manifest.json';
 

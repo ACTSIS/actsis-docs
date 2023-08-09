@@ -1,11 +1,11 @@
 ---
-title: Working with custom queries
-description: Explains the process of registering a new service class, adding a custom query and using it in a block.
-slug: working-with-custom-queries
-authors: obradovic
+title: Monitoreo sitios OCI
+description: Monitoreo sitios OCI y pruebas de rendimiento con Grafana y JMeter
+slug: monitoreo-sitios-oci
+authors: rondon
 
 date: 2023-08-01
-tags: [eightshift, boilerplate, service, class, query]
+tags: [actsis, grafana, service, jmeter]
 hide_table_of_contents: false
 ---
 

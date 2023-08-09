@@ -18,7 +18,7 @@ Check out our documentation and import what you need from Eightshift Frontend Li
 SCSS mixins, functions, and helpers are located in Eightshift Frontend Libs. Therefore, if you are using our Webpack build, you are all set. You can use it by importing it into your project like this:
 
 ```scss
-@import '@eightshift/frontend-libs/styles/index.scss';
+@import '@actsis/frontend-libs/styles/index.scss';
 ```
 
 However, if you used our `wp boilerplate init theme` command, you are all set. Eightshift Frontend Libs are injected in the `_shared.scss` file in your project.

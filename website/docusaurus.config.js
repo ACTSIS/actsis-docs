@@ -1,7 +1,7 @@
 const codeTheme = require('prism-react-renderer/themes/dracula');
 
 module.exports = {
-	title: 'Documentación servicios ACTSIS',
+	title: 'Docs',
 	tagline: 'Todas las herramientas que necesita para comenzar a utilizar nuestros servicios.',
 	url: 'https://actsis.com',
 	baseUrl: '/',
@@ -49,48 +49,19 @@ module.exports = {
 					title: 'Community',
 					items: [
 						{
-							label: 'Facebook',
-							href: 'https://facebook.com/actsis',
-							icon: 'facebook',
-						},
-						{
-							label: 'Instagram',
-							href: 'https://instagram.com/actsis/',
-							icon: 'instagram',
-						},
-						{
-							label: 'Twitter',
-							href: 'https://twitter.com/actsis',
-							icon: 'twitter',
-						},
-						{
-							label: 'Clutch',
-							href: 'https://clutch.co/profile/actsis',
-							icon: 'clutch',
-						},
-						{
-							label: 'Dribbble',
-							href: 'https://dribbble.com/actsis',
-							icon: 'dribbble',
-						},
-						{
 							label: 'LinkedIn',
-							href: 'https://linkedin.com/company/actsis/',
+							href: 'https://linkedin.com/company/actsis-ltda/',
 							icon: 'linkedin',
 						},
 					],
 				},
 			],
-			copyright: 'Hecho con ❤️ por equipo Actsis.',
+			copyright: 'Hecho con ❤️ por el equipo Actsis.',
 		},
 		algolia: {
 			appId: 'Q6UCWVTIW4',
 			apiKey: '22eb72a73f4a054c232c15ff770f10cd',
 			indexName: 'actsis_docs',
-		},
-		prism: {
-			theme: codeTheme,
-			additionalLanguages: ['php'],
 		},
 		colorMode: {
 			defaultMode: 'light',
@@ -117,9 +88,9 @@ module.exports = {
 					],
 				},
 				blog: {
-					blogTitle: 'Tutorials and articles about Eightshift development kit',
-					blogDescription: 'Tutorials and articles about Eightshift development kit',
-					blogSidebarTitle: 'Latest posts',
+					blogTitle: 'Blog Actsis',
+					blogDescription: 'Articulos acerca de Actsis y sus mejoras en los servicios',
+					blogSidebarTitle: 'Últimos posts',
 					showReadingTime: true,
 					postsPerPage: 6,
 				},
@@ -128,17 +99,6 @@ module.exports = {
 					priority: 0.5,
 				},
 			},
-		],
-	],
-	plugins: [
-		[
-			'@docusaurus/plugin-content-docs',
-			{
-				id: 'forms',
-				path: 'forms',
-				routeBasePath: 'forms',
-				sidebarPath: require.resolve('./sidebars-forms.js'),
-			}, 
 		],
 	],
 	customFields: {
