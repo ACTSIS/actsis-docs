@@ -1,33 +1,27 @@
-![image](https://repository-images.githubusercontent.com/236449101/e89c31b2-a180-4258-9f67-608b4050c484)
-
 [![GitHub tag](https://img.shields.io/github/tag/actsis/actsis-docs.svg?style=for-the-badge)](https://github.com/actsis/actsis-docs)
 [![GitHub stars](https://img.shields.io/github/stars/actsis/actsis-docs.svg?style=for-the-badge&label=Stars)](https://github.com/actsis/actsis-docs/)
 [![license](https://img.shields.io/github/license/actsis/actsis-docs.svg?style=for-the-badge)](https://github.com/actsis/actsis-docs)
 
 # Actsis Docs
 
-A documentation website for Eightshift open source projects.
+Documentación sobre servicios adicionales de ACTSIS.
 
 Visit:
 
-[https://eightshift.com/](https://eightshift.com/).
+[https://docs.actsis.com/](https://docs.actsis.com/).
 
-To run docs locally:
+Para correr localmentE:
 
-1. Clone this repo
-2. Navigate to `website` folder inside the repo
-3. Run `npm install`
-4. Run `npm start`
+1. Clone este repositorio
+2. Navega a la carpeta `website` dentro del repositorio
+3. Ejecuta `npm install`
+4. Ejecuta `npm start`
 
-Deployment is done through GitHub Actions by pushing the code to the main branch.
-
-## Who do I talk to?
-
-If you have any questions or problems, please [open an issue](https://github.com/infinum/eightshift-docs/issues) on github and we will do our best to give you a timely answer.
+La implementación se realiza a través de GitHub Actions al enviar el código a la rama principal.
 
 ## Maintainers
-Eightshift Docs is maintained and sponsored by
-[Eightshift](https://eightshift.com) and [Infinum](https://infinum.com).
+Actsis Docs es mantenido por
+[Actsis](https://actsis.com)
 
 ## License
-Eightshift Docs &copy;2021 [Eightshift](https://eightshift.com) and [Infinum](https://infinum.com). It is free software, and may be redistributed under the terms specified in the LICENSE file.
+Actsis Docs &copy;2022 [Actsis](https://actsis.com). Es software libre, y puede ser redistribuido bajo los términos especificados en el archivo de LICENCIA.

@@ -1,43 +1,43 @@
 name: Feature request
-description: Suggest an idea for this project
+description: Sugiere una idea para este proyecto.
 labels: feature request
-assignees: iruzevic
+assignees: DanielRondonGarcia
 body:
     - type: markdown
       attributes:
           value: |
-              Hi there! We see that you like our project and you have some ideas. This means a lot to us because it helps us to improve it even more :)
+              ¡Hola! Vemos que te gusta nuestro proyecto y tienes algunas ideas. Esto significa mucho para nosotros porque nos ayuda a mejorarlo aún más :)
     - type: textarea
       attributes:
-          label: Describe your feature request
-          description: Please write a clear and concise description of what the problem is.
+          label: Describa su solicitud de función
+          description: Escriba una descripción clara y concisa de cuál es el problema.
           placeholder: |
-              Example. I'm always frustrated when...
+              Ejemplo. Siempre me siento frustrado cuando...
       validations:
           required: true
 
     - type: textarea
       attributes:
-          label: Describe the solution you'd like
-          description: Please write a clear and concise description of what you want to happen.
+          label: Describa la solución que le gustaría
+          description: Por favor escribe una descripción clara y concisa de lo que quieres que suceda.
           placeholder: |
-              Example. With this feature I will be able to...
+              Ejemplo. Con esta función podré...
       validations:
           required: true
 
     - type: textarea
       attributes:
-          label: Screenshots, screen recording, code snippet
+          label: Capturas de pantalla, grabación de pantalla, fragmento de código
           description: |
-              If possible, please upload a screenshot or screen recording which demonstrates your feature request.
+              Si es posible, cargue una captura de pantalla o una grabación de pantalla que demuestre su solicitud de función.
       validations:
           required: false
 
     - type: dropdown
       id: existing
       attributes:
-          label: Please confirm that you have searched existing issues in this repo.
-          description: You can do this by searching https://github.com/infinum/eightshift-docs/issues.
+          label: Confirme que ha buscado problemas existentes en este repositorio.
+          description: Puede hacer esto buscando https://github.com/actsis/actsis-docs/issues.
           multiple: false
           options:
              - 'Yes'
@@ -48,8 +48,8 @@ body:
     - type: dropdown
       id: docs
       attributes:
-          label: Please confirm that you have searched in our documentation and couldn't find the answer.
-          description: You can do this by searching https://eightshift.com/.
+          label: Confirme que ha buscado en nuestra documentación y no ha podido encontrar la respuesta.
+          description: Puede hacerlo buscando en https://actsis.com/.
           multiple: false
           options:
              - 'Yes'

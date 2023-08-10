@@ -1,11 +1,11 @@
-# Description
+# Descripción
 
-<!--- Write in detail what you did and what issue did you fix with this PR. -->
+<!--- Escriba en detalle lo que hizo y qué problema solucionó con este PR. -->
 
-# Screenshots / Videos
+# Capturas de pantalla / Vídeos
 
-<!--- Show us what you did. -->
+<!--- Muéstranos lo que hiciste. -->
 
-# Linked documentation PR
+# Documentación vinculada PR
 
-<!--- If this PR has documentation please put the link here. -->
+<!--- Si este PR tiene documentación por favor ponga el enlace aquí. -->
