@@ -1,14 +1,14 @@
 import React from 'react';
-import { CtaImageButton } from '@infinum/docusaurus-theme';
+import { CtaImageButton } from '@actsis/docusaurus-theme';
 
 export const EsOsFreebies = (props) => {
 	return (
 		<CtaImageButton
 			{...props}
-			title='Find more libraries, tools, and design assets free for everyone to use.'
-			buttonLabel='Open-source freebies'
-			buttonUrl='https://infinum.com/open-source'
-			imageUrl='/img/homepage/infinum-open-source.svg'
+			title='Encuentra más información acerca de nosotros.'
+			buttonLabel='Nuestros productos'
+			buttonUrl='https://actsis.com/#productos'
+			imageUrl='/img/homepage/actsis-productos.svg'
 		/>
 	);
 };

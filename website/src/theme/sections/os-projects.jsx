@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconLinkCards, osProjectIcons } from '@infinum/docusaurus-theme';
+import { IconLinkCards, osProjectIcons } from '@actsis/docusaurus-theme';
 
 export const EsOpenSource = (props) => {
 	return (
