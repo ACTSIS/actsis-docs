@@ -1,13 +1,13 @@
 import React from 'react';
 import { useThemeConfig } from '@docusaurus/theme-common';
 
-import { Footer as InfinumFooter } from '@infinum/docusaurus-theme';
+import { Footer as ActsisFooter } from '@actsis/docusaurus-theme';
 
 function Footer() {
 	const { footer } = useThemeConfig();
 
 	return (
-		<InfinumFooter footer={footer} />
+		<ActsisFooter footer={footer} />
 	);
 }
 

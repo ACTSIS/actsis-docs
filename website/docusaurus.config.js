@@ -26,7 +26,7 @@ module.exports = {
 				{
 					to: 'docs/welcome',
 					activeBasePath: 'docs',
-					label: 'Docs',
+					label: 'Artemis',
 					position: 'right',
 				},
 				{
@@ -84,7 +84,7 @@ module.exports = {
 				theme: {
 					customCss: [
 						require.resolve('./src/theme/styles.css'),
-						require.resolve('@infinum/docusaurus-theme/dist/style.css'),
+						require.resolve('@actsis/docusaurus-theme/dist/style.css'),
 					],
 				},
 				blog: {
