@@ -8,7 +8,7 @@ module.exports = {
 	favicon: '/img/favicon.png',
 	organizationName: 'actsis',
 	projectName: 'actsis-docs',
-	staticDirectories: ['static'],
+	staticDirectories: ['public','static'],
 	onBrokenLinks: 'throw',
 	onBrokenMarkdownLinks: 'warn',
 	deploymentBranch: 'gh-pages',
@@ -31,7 +31,7 @@ module.exports = {
 			},
 			items: [
 				{
-					to: 'docs/welcome',
+					to: 'docs/Artemis',
 					activeBasePath: 'docs',
 					label: 'Artemis',
 					position: 'right',

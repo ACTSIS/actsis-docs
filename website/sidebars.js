@@ -35,9 +35,9 @@
 module.exports = {
 	docs: {
 		'Empezando': [
-			'welcome',
+			'Artemis',
 		],
-		'Basics': [
+		'Conceptos básicos': [
 			'basics/grafana-concepts',
 			/* {
 				'type': 'category',
