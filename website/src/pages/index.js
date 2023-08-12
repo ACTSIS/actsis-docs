@@ -28,7 +28,7 @@ export default function Home() {
 
 			<ImageAndText
 				title='BIENVENIDOS A UN MUNDO DE SOLUCIONES'
-				imageUrl='/img/homepage/block-cards.svg'
+				imageUrl={useBaseUrl(`img/homepage/block-cards.svg`)}
 				gray
 			>
 				<b>ACTSIS LTDA</b> es una empresa colombiana líder en la prestación de soluciones 
@@ -64,7 +64,7 @@ export default function Home() {
 				velamos por tu servicio, sin descansar.
 				disponibilidad y rendimiento a la par,
 				tu mejor experiencia queremos garantizar.'
-				imageUrl='/img/homepage/block-editor.webp'
+				imageUrl={useBaseUrl(`img/homepage/block-editor.webp`)}
 				gray
 				sticky
 			/>
