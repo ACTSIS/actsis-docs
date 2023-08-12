@@ -2,20 +2,20 @@ import React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
+import ShowcaseGrid from '../theme/sections/showcase-grid/showcase-grid';
 
-export default function Storybook() {
+export default function Showcase() {
 	const context = useDocusaurusContext();
-	const { siteConfig = {} } = context;
+	const {siteConfig = {}} = context;
 
 	return (
 		<Layout
-			title='Storybook'
+			title='Actsis showcase'
 			description={siteConfig.tagline}
 			keywords={siteConfig.customFields.keywords}
 			metaImage={useBaseUrl(`img/${siteConfig.customFields.image}`)}
-			wrapperClassName='es-single-full-screen-child'
 		>
-			<iframe className='es-full-size' src='https://github.com/actsis/actsis-docs/' />
+			<ShowcaseGrid privateType={true}/>
 		</Layout>
 	);
 };

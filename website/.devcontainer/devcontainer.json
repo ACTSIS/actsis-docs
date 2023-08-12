@@ -21,7 +21,8 @@
     "esbenp.prettier-vscode",
     "streetsidesoftware.code-spell-checker",
     "streetsidesoftware.code-spell-checker-spanish",
-    "GitHub.copilot"
+    "GitHub.copilot",
+    "unifiedjs.vscode-mdx"
   ],
   "forwardPorts": [3000],
   "containerUser": "vscode",
