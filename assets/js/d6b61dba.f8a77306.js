@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_actsis_docs=self.webpackChunk_actsis_docs||[]).push([[938],{6433:function(s){s.exports=JSON.parse('{"label":"actsis","permalink":"/blog/tags/actsis","allTagsPath":"/blog/tags","count":1}')}}]);
