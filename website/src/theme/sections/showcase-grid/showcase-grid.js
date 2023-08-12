@@ -79,7 +79,7 @@ export default function ShowcaseGrid(props) {
 				title={ctaTitle}
 				buttonLabel={ctaSubtitle}
 				buttonUrl={ctaUrl}
-				imageUrl='/img/showcase/cta.svg'
+				imageUrl={useBaseUrl(`img/showcase/cta.svg`)}
 			/>
 		</Fragment>
 	);
