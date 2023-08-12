@@ -22,7 +22,7 @@ export default function Home() {
 				subtitle='Un sitio web de documentación para servicios de ACTSIS.'
 				buttonLabel='Empezar'
 				buttonUrl='#get-started'
-				imageUrl='/img/homepage/w-logo.svg'
+				imageUrl={useBaseUrl(`img/homepage/w-logo.svg`)}
 				gray
 			/>
 
