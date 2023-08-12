@@ -13,15 +13,12 @@
   },
   "keywords": [
     "frontend",
-    "scss",
-    "mixin",
     "js",
     "utility",
-    "module",
-    "WordPress"
+    "module"
   ],
   "bugs": {
-    "url": "https://github.com/infinum/eightshift-docs/issues"
+    "url": "https://github.com/actsis/actsis-docs/issues"
   },
   "scripts": {
     "docusaurus": "docusaurus",

@@ -36,9 +36,9 @@ module.exports = {
 					position: 'right',
 				},
 				{
-					to: '/showcase',
-					activeBasePath: 'showcase',
-					label: 'Showcase',
+					to: '/links',
+					activeBasePath: 'links',
+					label: 'Links',
 					position: 'right',
 				},
 			],
@@ -56,12 +56,15 @@ module.exports = {
 					],
 				},
 			],
-			copyright: 'Hecho con ❤️ por el equipo Actsis.',
+			copyright: 'Inspirado de Infinum con ❤️ por el equipo Actsis',
 		},
 		algolia: {
 			appId: 'Q6UCWVTIW4',
 			apiKey: '22eb72a73f4a054c232c15ff770f10cd',
 			indexName: 'actsis_docs',
+			searchParameters: {
+				facetFilters: ['language:es'],
+			  },
 		},
 		colorMode: {
 			defaultMode: 'light',
@@ -103,13 +106,10 @@ module.exports = {
 	],
 	customFields: {
 		keywords: [
-			'wordpress tools',
-			'development tools',
-			'wordpress project',
-			'Gutenberg blocks',
-			'development kit',
-			'wordpress kit',
-			'devkit'
+			'Actsis Docs',
+			'Documentación',
+			'Artemis',
+			'Actsis'
 		],
 		image: 'img-why-boilerplate@2x.png',
 	}
