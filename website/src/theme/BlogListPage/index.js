@@ -41,7 +41,6 @@ function BlogListPageContent(props) {
 			</div>
 
 			<BlogListPaginator metadata={metadata} />
-			<EsOpenSource gray />
 			<EsOsFreebies gray />
 		</BlogLayout>
 	);
