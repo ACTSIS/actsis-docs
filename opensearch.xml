@@ -4,8 +4,8 @@
   <ShortName>Docs</ShortName>
   <Description>Search Docs</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://actsis.github.io/actsis-docs/img/favicon.png</Image>
-  <Url type="text/html" method="get" template="https://actsis.github.io/actsis-docs/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://actsis.github.io/actsis-docs/opensearch.xml" />
-  <moz:SearchForm>https://actsis.github.io/actsis-docs/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://actsis.github.io/img/favicon.png</Image>
+  <Url type="text/html" method="get" template="https://actsis.github.io/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://actsis.github.io/opensearch.xml" />
+  <moz:SearchForm>https://actsis.github.io/</moz:SearchForm>
 </OpenSearchDescription>
