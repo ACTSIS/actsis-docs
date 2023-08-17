@@ -3,8 +3,8 @@ const codeTheme = require('prism-react-renderer/themes/dracula');
 module.exports = {
 	title: 'Docs',
 	tagline: 'Todas las herramientas que necesita para comenzar a utilizar nuestros servicios.',
-	url: 'https://actsis.github.io',
-	baseUrl: '/actsis-docs/',
+	url: 'https://docs.actsis.com',
+	baseUrl: '/',
 	favicon: '/img/favicon.png',
 	organizationName: 'actsis',
 	projectName: 'actsis-docs',
