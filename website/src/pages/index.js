@@ -52,7 +52,7 @@ export default function Home() {
 							icon: icons.puzzleOpenJob,
 							text: 'Servicio de monitoreo',
 							buttonLabel: 'Artemis',
-							buttonUrl: '/docs/welcome',
+							buttonUrl: '/docs/Artemis',
 						}
 					]}
 				/>

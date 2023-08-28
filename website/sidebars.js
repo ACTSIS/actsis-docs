@@ -35,10 +35,10 @@
 module.exports = {
 	docs: {
 		'Empezando': [
-			'Artemis',
+			'artemis/Artemis',
 		],
 		'Conceptos básicos': [
-			'basics/grafana-concepts',
+			'artemis/basics/grafana-concepts',
 			/* {
 				'type': 'category',
 				'label': 'Backend',
@@ -61,5 +61,8 @@ module.exports = {
 				]
 			}, */
 		],
+		'Dashboards': [
+			'artemis/content/dashboard-monitoreo'
+		]
 	},
 };
