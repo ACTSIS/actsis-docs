@@ -21,7 +21,7 @@ La implementación se realiza a través de GitHub Actions al enviar el código a
 
 ## Maintainers
 Actsis Docs es mantenido por
-[Actsis](https://actsis.com)
+[Actsis](https://www.actsis.com)
 
 ## License
-Actsis Docs &copy;2022 [Actsis](https://actsis.com). Es software libre, y puede ser redistribuido bajo los términos especificados en el archivo de LICENCIA.
+Actsis Docs &copy;2022 [Actsis](https://www.actsis.com). Es software libre, y puede ser redistribuido bajo los términos especificados en el archivo de LICENCIA.

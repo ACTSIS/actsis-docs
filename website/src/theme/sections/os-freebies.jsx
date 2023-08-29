@@ -8,7 +8,7 @@ export const EsOsFreebies = (props) => {
 			{...props}
 			title='Encuentra más información acerca de nosotros.'
 			buttonLabel='Nuestros productos'
-			buttonUrl='https://actsis.com/#productos'
+			buttonUrl='https://www.actsis.com/#productos'
 			imageUrl={useBaseUrl(`img/homepage/actsis-productos.svg`)}
 		/>
 	);

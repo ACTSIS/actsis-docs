@@ -77,7 +77,7 @@ body:
       id: docs
       attributes:
           label: Confirme que ha buscado en nuestra documentación y no ha podido encontrar la respuesta.
-          description: Puede hacerlo buscando en https://actsis.com/.
+          description: Puede hacerlo buscando en https://www.actsis.com/.
           multiple: false
           options:
              - 'Yes'
