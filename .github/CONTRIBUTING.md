@@ -2,7 +2,7 @@
 
 ## Reportar un problema
 
-Si no está seguro de cómo funciona algo, asegúrese de leer nuestra [documentación] (https://actsis.com/). Si encontró un error en el código, [abra una incidencia](https://github.com/actsis/actsis-docs/issues) y siga las instrucciones de la plantilla de incidencias.
+Si no está seguro de cómo funciona algo, asegúrese de leer nuestra [documentación] (https://www.actsis.com/). Si encontró un error en el código, [abra una incidencia](https://github.com/actsis/actsis-docs/issues) y siga las instrucciones de la plantilla de incidencias.
 
 ## Aportando parches y nuevas funciones
 
