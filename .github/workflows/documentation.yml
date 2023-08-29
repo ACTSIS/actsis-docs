@@ -2,6 +2,10 @@ name: documentation
 
 on:
   push:
+    paths-ignore:
+      - '**.yml'
+      - '**.lock'
+      - '**.json'
     branches:
       - main
       - develop

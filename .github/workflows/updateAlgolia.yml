@@ -2,7 +2,7 @@ name: Ejecutar contenedor de scrapping
 
 on:
   workflow_run:
-    workflows: ["deploy"]
+    workflows: ["pages-build-deployment"]
     types:
       - completed
 
