@@ -1,0 +1,24 @@
+name: Ejecutar contenedor de scrapping
+
+on:
+  push:
+    branches:
+      - main
+
+cron:
+  - '*/10 * * * *'
+
+jobs:
+  ejecutar-contenedor:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Chequeo de código
+        uses: actions/checkout@v2
+      
+      - name: Ejecutar contenedor de scrapping
+        env:
+          APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
+          API_KEY: ${{ secrets.API_KEY }}
+        run: |
+          docker run -it -e APPLICATION_ID=$APPLICATION_ID -e API_KEY=$API_KEY -e "CONFIG=$(cat ./website/config.json | tr -d '\n')" algolia/docsearch-scraper

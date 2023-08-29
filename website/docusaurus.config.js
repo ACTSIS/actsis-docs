@@ -69,6 +69,8 @@ module.exports = {
 			appId: 'Q6UCWVTIW4',
 			apiKey: '22eb72a73f4a054c232c15ff770f10cd',
 			indexName: 'actsis_docs',
+			contextualSearch: true,
+			placeholder: 'Buscar en la documentación de ACTSIS..',
 			searchParameters: {
 				facetFilters: ['language:es'],
 			  },
