@@ -62,7 +62,8 @@ module.exports = {
 			}, */
 		],
 		'Dashboards': [
-			'artemis/content/dashboard-monitoreo'
+			'artemis/content/dashboard-monitoreo',
+			'artemis/content/dashboard-performance'
 		]
 	},
 };

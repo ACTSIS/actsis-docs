@@ -19,10 +19,18 @@ Un dashboard es un conjunto de paneles que se pueden agrupar para mostrar inform
 
 Por ahora, en Artemis tenemos un dashboard por cada prueba de rendimiento y el monitoreo de los servicios, la siguiente imagen ilustra un dashboard con información de la prueba de rendimiento.
 
-![Panel](/img/docs/artemis/Dashboard_Pruebas_rendimiento.webp)
+![Dashboard pruebas de rendimiento](/img/docs/artemis/Dashboard_Pruebas_rendimiento.webp)
 
 ## ¿Cómo ingresar a Grafana?
 
 Para ingresar a Grafana, debes ingresar a la siguiente URL: [https://grafana.actsis.com](https://grafana.actsis.com) y autenticarse con los credenciales enviados por correo electrónico.
 
 En caso de no tener acceso a Grafana ó olvidar la contraseña, debes solicitarlo a través de un ticket en el [SGI](https://sgi.actsis.com).
+
+## Ayudas rápidas
+
+En los paneles de Grafana, en la parte superior derecha se encuentra el botón de ayuda, el cual contiene información sobre el panel y los datos que se muestran en el mismo.
+
+por ejemplo, en el siguiente panel se muestra la ayuda del panel de duración de una prueba de rendimiento.
+
+![Ayudas Rápidas](/img/docs/artemis/ayudas-rapidas.webp)

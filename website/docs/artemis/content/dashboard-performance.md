@@ -1,126 +1,251 @@
 ---
-id: dashboard-monitoreo
-title: Tablero de Monitoreo
+id: dashboard-performance
+title: Tablero de Rendimiento
 ---
 
-En ACTSIS, contamos con una amplia gama de servicios, lo que puede dificultar el seguimiento individual de sus estados. Para abordar este desafío, hemos desarrollado un Tablero de Monitoreo que nos permite visualizar de manera centralizada la condición de cada servicio, así como sus métricas clave.
-
-La implementación y mantenimiento de un monitoreo web efectivo desempeñan un papel fundamental en nuestra operativa. Este enfoque no solo garantiza la disponibilidad continua de nuestros servicios, sino que también capacita a los administradores de red para anticipar problemas al descubrir patrones de consumo de recursos y rendimiento que, de lo contrario, podrían pasar inadvertidos.
-
-Nuestras herramientas avanzadas de monitoreo de servidores web ofrecen la capacidad de identificar y abordar problemas, e incluso prevenir posibles inconvenientes en el rendimiento, en una fase temprana, a menudo antes de que los usuarios sean conscientes de dichos problemas.
-
-En resumen, nuestro Tablero de Monitoreo se erige como un pilar esencial para mantener la calidad operativa. Proporciona una visión integral de la salud de nuestros servicios, permitiendo a nuestros equipos tomar medidas proactivas y mantener altos estándares de eficiencia.
-
-![Panel](/img/docs/artemis/fullpage-dashboard-monitoreo.webp)
+Para el desarrollo de este tablero se utilizó la tecnología de JMeter, la cual es una herramienta de código abierto diseñada para cargar pruebas de rendimiento funcionales y medir el rendimiento de las aplicaciones. JMeter es una herramienta de escritorio con una interfaz gráfica que utiliza Java Swing para simular un grupo de usuarios concurrentes que utilizan diferentes protocolos de comunicación.
 
 ## **Parámetros de Monitoreo**
 
-### Interval
+### Bucket (Cubeta)
 
-El intervalo de monitoreo se refiere al intervalo de tiempo entre cada prueba de monitoreo. Por ejemplo, si el intervalo de monitoreo es de 5 minutos, el sistema de monitoreo realizará una prueba cada 5 minutos.
+Se refiere a la base de datos seleccionada la cual es acorde a las pruebas de rendimiento realizadas, no se pueden seleccionar varias bases de datos a la vez.
 
-### Instance
+### Solicitud - Solicitud  individual
 
-Se refiere al servicio web seleccionado, por defecto está en `Todo` para mostrar todos los servicios.
+Se refiere a la solicitud seleccionada en la parte superior del tablero, no se pueden seleccionar varias solicitudes a la vez. Esta es utilizada para la sección de [análisis por peticiones individuales.](#análisis-por-peticiones-individuales).
 
-## **Paneles del Tablero de Monitoreo**
+### Intervalo de agregación
 
-Este tablero está compuesto por los siguientes paneles:
+Se refiere al intervalo de tiempo entre cada prueba de monitoreo. Por ejemplo, si el intervalo de monitoreo es de 5 minutos, el sistema de monitoreo realizará una prueba cada 5 minutos.
 
-### Duración de exploración global
+### ID de Ejecución
 
-La gráfica representa el tiempo de respuesta del sitio web en segundos en el eje Y, en función del tiempo en el eje X durante un período de tiempo determinado. El tiempo de respuesta mide la velocidad a la que el sitio web carga y muestra la página, lo cual es crucial para la experiencia del usuario. 
+Dentro de las pruebas de rendimiento con JMeter, cada tarea de las pruebas genera un ID, está puede cambiar si se ejecuta la prueba de nuevo, por lo que se debe seleccionar el ID de la ejecución que se desea monitorear.
 
-Por lo general, un tiempo de respuesta bajo se considera un indicativo de un sitio web rápido y un alto tiempo de respuesta puede afectar negativamente la experiencia del usuario.
+Se puede identificar fácilmente ya que tiene como prefijo la fecha de ejecución, por ejemplo `20230802-`.
 
-![Panel](/img/docs/artemis/monitoreo/duración-exploracion-global.webp)
+### Tipo de muestreo
 
-### Status
+Se refiere al tipo de muestreo que se desea visualizar en el tablero, por defecto está en `Todos` para mostrar todos los tipos de muestreo.
 
-La verificación del estado (status) se refiere a la confirmación de que el sitio web está funcionando correctamente y que se está recibiendo una respuesta del servidor.
+### Test Start y Test End
 
-El estado (status) más comúnmente utilizado en los sitios web es el código de respuesta HTTP 200, lo que indica que la petición se ha procesado correctamente y que se ha enviado una respuesta del servidor.
+Estos son utilizados para que el tablero muestre los datos de un rango cuando las pruebas han empezado y finalizado, es decir, que no se visualizarán datos de pruebas que no se han ejecutado.
 
-![Panel](/img/docs/artemis/monitoreo/status.webp)
+## **General**
 
-## HTTP Status Code
+El dashboard de Grafana para el monitoreo del rendimiento de la aplicación incluye varias métricas importantes que se muestran en diferentes paneles. A continuación se detalla cada una de estas métricas:
 
-Los códigos de estado HTTP indican si una solicitud HTTP específica se ha completado correctamente. Las respuestas se agrupan en cinco clases:
+### Usuarios Activos
 
-- Respuestas informativas (100–199)
-- Respuestas satisfactorias (200–299)
-- Redirecciones (300–399)
-- Errores de los clientes (400–499)
-- Errores de los servidores (500–599)
+Este panel muestra la cantidad de usuarios activos en la aplicación en tiempo real. Proporciona información sobre la carga actual del sistema y ayuda a identificar si hay picos de actividad que podrían afectar el rendimiento.
 
-![Panel](/img/docs/artemis/monitoreo/http-status-code.webp)
+![Usuarios Activos](/img/docs/artemis/performance/usuarios-activos.webp)
 
-## HTTP Version
+### Rendimiento total medido en ops/s
 
-La versión de HTTP se refiere a la versión del protocolo HTTP que se utiliza para enviar la solicitud. La versión de HTTP se puede utilizar para determinar si el sitio web está utilizando una versión obsoleta del protocolo HTTP.
+Este panel muestra la cantidad total de operaciones por segundo (ops/s) que se están ejecutando en la aplicación. Permite evaluar la capacidad del sistema para manejar la carga de trabajo actual y si se está acercando o superando su capacidad máxima.
 
-Cada versión de HTTP especifica su propio conjunto de reglas y directrices para la transmisión de datos entre el servidor y el navegador. Por lo tanto, el protocolo HTTP se ha actualizado con el tiempo para adaptarse a las necesidades cambiantes de la web.
+![Rendimiento total medido en ops/s](/img/docs/artemis/performance/rendimiento-total-ops.webp)
 
-Es importante tener en cuenta la versión de HTTP que se utiliza en una solicitud para garantizar que los servidores web y los navegadores estén en sintonía entre sí. Si la versión HTTP utilizada por un navegador no es compatible con la versión del servidor web, puede haber problemas de comunicación y la solicitud podría fallar.
+### Conteo de Solicitudes
 
-![Panel](/img/docs/artemis/monitoreo/http-version.webp)
+Este panel muestra el recuento total de solicitudes realizadas durante la ejecución del plan de pruebas. Es una métrica útil para evaluar la cantidad de tráfico que recibe la aplicación y cómo puede afectar su rendimiento.
 
-## SSL
+![Conteo de Solicitudes](/img/docs/artemis/performance/conteo-solicitudes.webp)
 
-El protocolo SSL (Secure Sockets Layer) es un protocolo de seguridad que permite que los datos se transmitan de forma segura entre un servidor web y un navegador web. SSL garantiza que todos los datos transmitidos entre el servidor web y el navegador web permanezcan privados y seguros.
+### Tasa de éxito
 
-![Panel](/img/docs/artemis/monitoreo/ssl.webp)
+La tasa de éxito es el porcentaje de solicitudes que se completaron con éxito en comparación con el total de solicitudes enviadas. Este panel muestra la tasa de éxito en tiempo real, lo que permite evaluar la capacidad de la aplicación para manejar las solicitudes y procesarlas correctamente.
 
-## HTTP Duration
+![Tasa de éxito](/img/docs/artemis/performance/tasa-exito.webp)
 
-La duración de una solicitud HTTP (HTTP Duration) se refiere al tiempo que tarda una solicitud en completarse, es decir, desde el momento en que se envía la solicitud hasta el momento en que se recibe la respuesta. Esto incluye el tiempo que se tarda en establecer la conexión, enviar y recibir los datos y cualquier otro proceso necesario para completar la solicitud.
+### Tasa de Error
 
-Se compone de varias métricas que describen diferentes partes del proceso de transmisión y procesamiento de una solicitud y su respuesta. Aquí te las explico:
+La tasa de error es el porcentaje de solicitudes que fallaron en comparación con el total de solicitudes enviadas. Este panel muestra la tasa de error en tiempo real, lo que permite identificar cualquier problema o error en la aplicación que pueda estar afectando su rendimiento.
 
-- **Connect:** se refiere al tiempo que tarda en establecer una conexión con el servidor. Esta métrica incluye el tiempo que se tarda en hacer la resolución de DNS y el tiempo que se tarda en establecer una conexión TCP.
+![Tasa de Error](/img/docs/artemis/performance/tasa-error.webp)
 
-- **Resolve:** se refiere al tiempo que se tarda en resolver el nombre del dominio de la URL de la solicitud en una dirección IP.
+### Conteo de errores
 
-- **Tls:** se refiere al tiempo que se tarda en establecer una conexión segura TLS/SSL con el servidor.
+Este panel muestra el recuento total de errores que se han producido durante la ejecución del plan de pruebas. Proporciona información detallada sobre los diferentes tipos de errores que se han encontrado, lo que ayuda a identificar y solucionar problemas en la aplicación.
 
-- *Transfer:* se refiere al tiempo que se tarda en transferir los datos de la respuesta desde el servidor al cliente.
+![Conteo de errores](/img/docs/artemis/performance/conteo-errores.webp)
 
-- **Processing:** se refiere al tiempo que se tarda en procesar la respuesta recibida antes de que pueda ser renderizada en el navegador. Esta métrica incluye el tiempo que se tarda en decodificar los datos de la respuesta y el tiempo que tarda el navegador en renderizar la página.
+### Bytes enviados
 
-Cada una de estas métricas puede ser medida y monitorizada por separado para identificar cuellos de botella en el proceso de transmisión y procesamiento de la solicitud y así mejorar el rendimiento del sitio web.
+Este panel muestra la cantidad total de bytes enviados durante la ejecución del plan de pruebas. Es una métrica útil para evaluar la carga de red y si el sistema está utilizando eficientemente los recursos de red.
 
-![Panel](/img/docs/artemis/monitoreo/http-duration.webp)
+![Bytes enviados](/img/docs/artemis/performance/bytes-enviados.webp)
 
-## SSL Expiry
+### Bytes Recibidos
 
-Muestra el tiempo restante antes de que caduque el certificado SSL del sitio web. El certificado SSL es un certificado digital que se utiliza para autenticar la identidad de un sitio web y cifrar la información que se envía al servidor.
+Este panel muestra la cantidad total de bytes recibidos durante la ejecución del plan de pruebas. Proporciona información sobre la cantidad de datos que se están transmitiendo desde el servidor de aplicaciones al cliente y viceversa.
 
-![Panel](/img/docs/artemis/monitoreo/ssl-expiry.webp)
+![Bytes Recibidos](/img/docs/artemis/performance/bytes-recibidos.webp)
 
-## Duración de la prueba
+### Métricas generales
 
-Se refiere al tiempo que tarda un sistema de monitoreo en realizar una prueba para verificar el estado de un servicio o recurso en un sitio web u otro sistema.
+Estos paneles incluye una variedad de estadísticas sobre las solicitudes realizadas durante la ejecución del plan de pruebas. Estas métricas incluyen:
 
-Por ejemplo, un sistema de monitoreo puede estar configurado para realizar pruebas periódicas a un sitio web para comprobar que está en funcionamiento correctamente. El tiempo que tarda la prueba en ejecutarse y proporcionar una respuesta es la duración de la prueba.
+- Conteo de solicitudes: el número total de solicitudes realizadas.
+- Media: el tiempo de respuesta medio de todas las solicitudes.
+- Máximo: el tiempo de respuesta máximo de todas las solicitudes.
+- Mediana: el tiempo de respuesta que divide a las solicitudes en dos partes iguales.
+- Percentil 90%: el tiempo de respuesta por debajo del cual el 90% de las solicitudes se encuentran.
+- Percentil 95%: el tiempo de respuesta por debajo del cual el 95% de las solicitudes se encuentran.
+- Percentil 99%: el tiempo de respuesta por debajo del cual el 99% de las solicitudes se encuentran.
+- TPS (transacciones por segundo): la cantidad de transacciones que se están realizando por segundo.
+- TRM (tiempo de respuesta medio): el tiempo de respuesta promedio de todas las transacciones.
+- TPH (transacciones por hora): la cantidad de transacciones que se están realizando por hora.
+- Tasa de error: el porcentaje de solicitudes que fallaron en comparación con el total de solicitudes.
 
-La duración de la prueba es una métrica importante porque puede indicar si hay algún problema de rendimiento o latencia en el sistema de monitoreo o en el sitio web. Si la duración de la prueba es demasiado larga, puede indicar un problema de rendimiento en el sistema de monitoreo o en la red que está interfiriendo con las pruebas. Si la duración de la prueba es demasiado corta, puede indicar que la prueba no está configurada adecuadamente para verificar el estado completo del servicio o recurso.
+![Métricas generales](/img/docs/artemis/performance/metricas-generales.webp)
 
-![Panel](/img/docs/artemis/grafana-panel.webp)
+## **Percentiles**
 
-## Duración promedio de la prueba
+### Percentil 90% del tiempo de respuesta
 
-Se refiere a la duración promedio de las pruebas realizadas por un sistema de monitoreo durante un período de tiempo determinado.
+El percentil 90% del tiempo de respuesta indica el tiempo de respuesta por debajo del cual el 90% de las solicitudes se encuentran. Es una métrica útil para evaluar el rendimiento de la aplicación en condiciones normales y cómo está respondiendo la mayoría de las solicitudes.
 
-Es una métrica importante porque puede indicar si el sistema de monitoreo está funcionando correctamente y si se está probando adecuadamente el servicio o recurso que se desea verificar. Si el Average Probe Duration es más prolongado de lo que se espera, puede indicar un problema de rendimiento en el sistema de monitoreo o en la red que está interfiriendo con las pruebas.
+### Percentil 95% del tiempo de respuesta
 
-![Panel](/img/docs/artemis/monitoreo/average-probe-duration.webp)
+El percentil 95% del tiempo de respuesta indica el tiempo de respuesta por debajo del cual el 95% de las solicitudes se encuentran. Es una métrica útil para evaluar el rendimiento de la aplicación y cómo está respondiendo la mayoría de las solicitudes en condiciones normales.
 
-## Tiempo promedio de resolución DNS
+### Percentil 99% del tiempo de respuesta
 
-Se refiere al tiempo promedio que tarda un sistema en resolver una dirección DNS (Domain Name System) durante un período de tiempo determinado.
+El percentil 99% del tiempo de respuesta indica el tiempo de respuesta por debajo del cual el 99% de las solicitudes se encuentran. Es una métrica útil para evaluar el rendimiento de la aplicación y cómo está respondiendo la mayoría de las solicitudes en condiciones normales, además permite identificar cualquier solicitud que pueda ser considerada como una "solicitud lenta" o que está afectando negativamente el tiempo de respuesta promedio.
 
-Es una métrica importante porque puede indicar si el servidor DNS está funcionando correctamente y si se están resolviendo las direcciones de manera rápida y eficiente. Si el Average DNS Lookup es demasiado lento, puede indicar que el servidor DNS está sobrecargado o que hay problemas de red que están afectando el rendimiento.
+### Resumen de Errores
 
-![Panel](/img/docs/artemis/monitoreo/average-dns-lookup.webp)
+Este panel muestra un resumen de los errores que se han producido durante la ejecución del plan de pruebas. Proporciona un resumen de los errores encontrados durante la ejecución de un plan de pruebas, incluyendo el número total de errores, el tipo de error y la tasa de error.
 
-Este grupo de paneles se duplica dependiendo de la cantidad de servicios que se estén monitorizando.
+![Percentiles](/img/docs/artemis/performance/percentiles.webp)
+
+## **Throughput**
+
+El throughput es la cantidad de solicitudes o transacciones que se están procesando por unidad de tiempo. Se mide en solicitudes por segundo (req/s) y muestra la capacidad del sistema para manejar un cierto volumen de solicitudes en un período de tiempo determinado.
+
+### Rendimiento total (TPS y Virtual users)
+
+Este panel muestra el rendimiento total de la aplicación en función de las transacciones por segundo (TPS) y los usuarios virtuales. El TPS indica la cantidad de transacciones que se están realizando por segundo, mientras que los usuarios virtuales representan la carga de trabajo generada en la aplicación.
+
+![Throughput](/img/docs/artemis/performance/throughput.webp)
+
+### Rendimiento total por solicitud
+
+Este panel muestra el rendimiento total de la aplicación desglosado por cada tipo de solicitud. Proporciona información detallada sobre el tiempo de respuesta, la tasa de éxito y la tasa de error de cada solicitud, lo que ayuda a identificar cualquier problema o cuello de botella específico en la aplicación.
+
+![Throughput](/img/docs/artemis/performance/throughput-solicitud.webp)
+
+### Rendimiento Total (estado "Fallido")
+
+Este panel muestra el rendimiento total de la aplicación en relación con las operaciones fallidas. En el eje X se representa el tiempo mientras que en el eje Y se muestra la cantidad de usuarios. Proporciona información sobre la cantidad de operaciones que han fallado en un período de tiempo determinado.
+
+![Throughput](/img/docs/artemis/performance/throughput-fallido.webp)
+
+### Rendimiento Total por Solicitud (Estado "éxito")
+
+Este panel muestra el rendimiento total de la aplicación desglosado por cada tipo de solicitud en caso de éxito. En el eje Y izquierdo se muestra ops/s (operaciones por segundo) y en el eje Y derecho se muestra el número de usuarios virtuales a lo largo del tiempo. Proporciona información sobre el rendimiento de cada tipo de solicitud en términos de operaciones por segundo y la carga de trabajo generada por los usuarios virtuales.
+
+![Throughput](/img/docs/artemis/performance/throughput-solicitud-exito.webp)
+
+### Rendimiento Total por Solicitud (Estado "fallido")
+
+Este panel muestra el rendimiento total de la aplicación desglosado por cada tipo de solicitud en caso de falla. En el eje Y izquierdo se muestra ops/s (operaciones por segundo) y en el eje Y derecho se muestra el número de usuarios virtuales a lo largo del tiempo. Proporciona información sobre el rendimiento de cada tipo de solicitud en términos de operaciones por segundo y la carga de trabajo generada por los usuarios virtuales, pero solo para las solicitudes que han fallado.
+
+![Throughput](/img/docs/artemis/performance/throughput-solicitud-fallido.webp)
+
+### Rendimiento por Código de Estado
+
+Este panel muestra el rendimiento de la aplicación desglosado por diferentes códigos de estado HTTP. Proporciona información sobre la cantidad de solicitudes que han generado cada código de estado, lo que ayuda a identificar cualquier problema relacionado con los códigos de estado de respuesta de la aplicación.
+
+![Throughput](/img/docs/artemis/performance/throughput-codigo-estado.webp)
+
+## **Tiempo de respuesta A lo largo del tiempo**
+
+Este panel muestra el tiempo de respuesta de las solicitudes a lo largo del tiempo. El tiempo de respuesta es el tiempo que le lleva a la aplicación responder a una solicitud y se mide en milisegundos. Este panel permite evaluar cómo el tiempo de respuesta varía a medida que la carga de trabajo aumenta o disminuye.
+
+### Tiempo de Respuesta Promedio
+
+Este panel muestra el tiempo de respuesta promedio de todas las solicitudes realizadas. Proporciona información sobre el rendimiento promedio de la aplicación y cómo está respondiendo a las solicitudes en general.
+
+![Tiempo de Respuesta Promedio](/img/docs/artemis/performance/tiempo-respuesta-promedio.webp)
+
+### Tiempo de Respuesta Promedio (estado "éxito")
+
+Este panel muestra el tiempo de respuesta promedio de las solicitudes exitosas. Proporciona información sobre el rendimiento promedio de la aplicación en términos de tiempo de respuesta para las solicitudes exitosas.
+
+![Tiempo de Respuesta Promedio](/img/docs/artemis/performance/tiempo-respuesta-promedio-exito.webp)
+
+### Tiempo de Respuesta Promedio (estado "fallido")
+
+Este panel muestra el tiempo de respuesta promedio de las solicitudes que han fallado. Proporciona información sobre el rendimiento promedio de la aplicación en términos de tiempo de respuesta para las solicitudes fallidas.
+
+![Tiempo de Respuesta Promedio](/img/docs/artemis/performance/tiempo-respuesta-promedio-fallido.webp)
+
+### Tiempo Máximo de Respuesta
+
+Este panel muestra el tiempo de respuesta máximo de todas las solicitudes realizadas. Proporciona información sobre el peor tiempo de respuesta que la aplicación ha experimentado durante un período de tiempo determinado.
+
+![Tiempo Máximo de Respuesta](/img/docs/artemis/performance/tiempo-maximo-respuesta.webp)
+
+## **Resumen de Errores**
+
+Este panel proporciona un resumen de los errores que se han producido durante la ejecución del plan de pruebas. Muestra el número total de errores de cada tipo y permite identificar los errores más comunes o críticos que deben solucionarse.
+
+El tráfico de red se refiere a la cantidad de datos que se transmiten entre la aplicación y los clientes a través de la red. Es una métrica importante para evaluar el rendimiento de la aplicación y la eficiencia del uso de los recursos de red. Los paneles relacionados con el tráfico de red en el dashboard de Grafana son los siguientes:
+
+## **Tráfico de red**
+
+El tráfico de red se refiere a la cantidad de datos que se transmiten entre la aplicación y los clientes a través de la red.
+
+Es una métrica importante para evaluar el rendimiento de la aplicación y la eficiencia del uso de los recursos de red. Los paneles relacionados con el tráfico de red en el dashboard de Grafana son los siguientes:
+
+### Latencia
+
+El panel de latencia muestra el tiempo que tarda un paquete de datos en viajar desde el cliente hasta el servidor y viceversa. Esta métrica es importante para evaluar la velocidad y capacidad de respuesta de la red. Un aumento repentino en la latencia puede indicar problemas de congestión o falta de ancho de banda en la red, lo que puede afectar negativamente el rendimiento de la aplicación.
+
+![Latencia](/img/docs/artemis/performance/latencia.webp)
+
+### Tiempo de conexión
+
+El panel de tiempo de conexión muestra el tiempo que tarda en establecerse una conexión entre el cliente y el servidor. Esta métrica permite evaluar la eficiencia del proceso de conexión y detectar posibles problemas de conectividad. Un incremento en el tiempo de conexión puede indicar problemas de red o de rendimiento del servidor.
+
+![Tiempo de conexión](/img/docs/artemis/performance/tiempo-conexion.webp)
+
+### Bytes enviados en el tiempo
+
+El panel de bytes enviados en el tiempo muestra la cantidad de bytes que se envían desde el cliente al servidor a lo largo del tiempo. Esta métrica es útil para evaluar la carga de tráfico que se está generando en la red y puede ayudar a identificar posibles cuellos de botella o problemas de congestión.
+
+![Bytes enviados en el tiempo](/img/docs/artemis/performance/bytes-enviados-tiempo.webp)
+
+### Bytes enviados por solicitud
+
+El panel de bytes enviados por solicitud muestra la cantidad de bytes que se envían desde el cliente al servidor por cada solicitud realizada. Esta métrica proporciona información sobre la cantidad de datos que se están transmitiendo en cada transacción y puede ayudar a identificar solicitudes o acciones que generan un alto consumo de ancho de banda.
+
+![Bytes enviados por solicitud](/img/docs/artemis/performance/bytes-enviados-solicitud.webp)
+
+### Bytes recibidos por solicitud
+
+El panel de bytes recibidos por solicitud muestra la cantidad de bytes que se reciben desde el servidor al cliente por cada solicitud realizada. Esta métrica proporciona información sobre la cantidad de datos que se están recibiendo en cada transacción y puede ayudar a identificar solicitudes o acciones que generan una alta carga de respuesta del servidor.
+
+![Bytes recibidos por solicitud](/img/docs/artemis/performance/bytes-recibidos-solicitud.webp)
+
+Los datos relacionados con el tráfico de red son útiles para identificar posibles problemas de rendimiento o de recursos de red. Por ejemplo, si se observa un aumento repentino en la latencia, esto podría indicar que la red está congestionada y que se deben tomar medidas para mejorar la capacidad de la red o reducir la carga de tráfico. Del mismo modo, si se detectan grandes cantidades de bytes enviados por solicitud, esto podría indicar una ineficiencia en el envío de datos y la necesidad de optimizar las interacciones entre cliente y servidor.
+
+En resumen, el análisis del tráfico de red a través de los paneles en Grafana permite monitorear y evaluar el rendimiento de la aplicación desde una perspectiva de comunicación en red. Esto ayuda a garantizar una alta disponibilidad y calidad de servicio, identificando problemas relacionados con la latencia, el tiempo de conexión o el uso ineficiente de los recursos de red.
+
+## **Análisis por peticiones individuales**
+
+Esta sección del tablero, muestra paneles acordes a la petición seleccionada en la parte superior del mismo.
+
+- Tiempo de Respuesta
+- Rendimiento por Segundos
+- Tasa de Error
+- Código de Respuesta
+
+Ejemplo del Login:
+
+![Análisis por peticiones individuales](/img/docs/artemis/performance/analisis-peticiones-individuales.webp)
