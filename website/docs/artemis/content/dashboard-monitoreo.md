@@ -29,7 +29,7 @@ Este tablero está compuesto por los siguientes paneles:
 
 ### Duración de exploración global
 
-La gráfica representa el tiempo de respuesta del sitio web en segundos en el eje Y, en función del tiempo en el eje X durante un período de tiempo determinado. El tiempo de respuesta mide la velocidad a la que el sitio web carga y muestra la página, lo cual es crucial para la experiencia del usuario. 
+La gráfica representa el tiempo de respuesta del sitio web en segundos en el eje Y, en función del tiempo en el eje X durante un período de tiempo determinado. El tiempo de respuesta mide la velocidad a la que el sitio web carga y muestra la página, lo cual es crucial para la experiencia del usuario.
 
 Por lo general, un tiempo de respuesta bajo se considera un indicativo de un sitio web rápido y un alto tiempo de respuesta puede afectar negativamente la experiencia del usuario.
 
@@ -43,7 +43,7 @@ El estado (status) más comúnmente utilizado en los sitios web es el código de
 
 ![Panel](/img/docs/artemis/monitoreo/status.webp)
 
-## HTTP Status Code
+### HTTP Status Code
 
 Los códigos de estado HTTP indican si una solicitud HTTP específica se ha completado correctamente. Las respuestas se agrupan en cinco clases:
 
@@ -55,7 +55,7 @@ Los códigos de estado HTTP indican si una solicitud HTTP específica se ha comp
 
 ![Panel](/img/docs/artemis/monitoreo/http-status-code.webp)
 
-## HTTP Version
+### HTTP Version
 
 La versión de HTTP se refiere a la versión del protocolo HTTP que se utiliza para enviar la solicitud. La versión de HTTP se puede utilizar para determinar si el sitio web está utilizando una versión obsoleta del protocolo HTTP.
 
@@ -65,13 +65,13 @@ Es importante tener en cuenta la versión de HTTP que se utiliza en una solicitu
 
 ![Panel](/img/docs/artemis/monitoreo/http-version.webp)
 
-## SSL
+### SSL
 
 El protocolo SSL (Secure Sockets Layer) es un protocolo de seguridad que permite que los datos se transmitan de forma segura entre un servidor web y un navegador web. SSL garantiza que todos los datos transmitidos entre el servidor web y el navegador web permanezcan privados y seguros.
 
 ![Panel](/img/docs/artemis/monitoreo/ssl.webp)
 
-## HTTP Duration
+### HTTP Duration
 
 La duración de una solicitud HTTP (HTTP Duration) se refiere al tiempo que tarda una solicitud en completarse, es decir, desde el momento en que se envía la solicitud hasta el momento en que se recibe la respuesta. Esto incluye el tiempo que se tarda en establecer la conexión, enviar y recibir los datos y cualquier otro proceso necesario para completar la solicitud.
 
@@ -91,13 +91,13 @@ Cada una de estas métricas puede ser medida y monitorizada por separado para id
 
 ![Panel](/img/docs/artemis/monitoreo/http-duration.webp)
 
-## SSL Expiry
+### SSL Expiry
 
 Muestra el tiempo restante antes de que caduque el certificado SSL del sitio web. El certificado SSL es un certificado digital que se utiliza para autenticar la identidad de un sitio web y cifrar la información que se envía al servidor.
 
 ![Panel](/img/docs/artemis/monitoreo/ssl-expiry.webp)
 
-## Duración de la prueba
+### Duración de la prueba
 
 Se refiere al tiempo que tarda un sistema de monitoreo en realizar una prueba para verificar el estado de un servicio o recurso en un sitio web u otro sistema.
 
@@ -107,7 +107,7 @@ La duración de la prueba es una métrica importante porque puede indicar si hay
 
 ![Panel](/img/docs/artemis/grafana-panel.webp)
 
-## Duración promedio de la prueba
+### Duración promedio de la prueba
 
 Se refiere a la duración promedio de las pruebas realizadas por un sistema de monitoreo durante un período de tiempo determinado.
 
@@ -115,7 +115,7 @@ Es una métrica importante porque puede indicar si el sistema de monitoreo está
 
 ![Panel](/img/docs/artemis/monitoreo/average-probe-duration.webp)
 
-## Tiempo promedio de resolución DNS
+### Tiempo promedio de resolución DNS
 
 Se refiere al tiempo promedio que tarda un sistema en resolver una dirección DNS (Domain Name System) durante un período de tiempo determinado.
 
