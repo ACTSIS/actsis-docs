@@ -8,7 +8,7 @@ Documentación sobre servicios adicionales de ACTSIS.
 
 Visit:
 
-[https://https://actsis.github.io/actsis-docs/](https://https://actsis.github.io/actsis-docs/).
+[https://docs.actsis.com/](https://docs.actsis.com/).
 
 Para correr localmentE:
 
