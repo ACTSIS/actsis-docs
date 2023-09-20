@@ -35,6 +35,14 @@ Por lo general, un tiempo de respuesta bajo se considera un indicativo de un sit
 
 ![Panel](/img/docs/artemis/monitoreo/duración-exploracion-global.webp)
 
+### Tasa de Disponibilidad
+
+La tasa de disponibilidad se refiere a la proporción de tiempo que un servicio está disponible durante un período de tiempo determinado. Por ejemplo, si un servicio está disponible el 99% del tiempo, su tasa de disponibilidad es del 99%.
+
+Utilizamos una escala de colores que va desde rojo (muy malo) hasta verde (muy bueno) para proporcionar una rápida evaluación visual de la calidad de la disponibilidad. Un mayor porcentaje indica un mejor rendimiento y una mayor disponibilidad del sistema, mientras que un menor porcentaje puede indicar problemas de disponibilidad. Utilice este panel para monitorear y evaluar el rendimiento y la confiabilidad del sistema en tiempo real.
+
+![Panel](/img/docs/artemis/monitoreo/tasa-disponibilidad.webp)
+
 ### Status
 
 La verificación del estado (status) se refiere a la confirmación de que el sitio web está funcionando correctamente y que se está recibiendo una respuesta del servidor.
