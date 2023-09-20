@@ -85,6 +85,18 @@ Este panel muestra la cantidad total de bytes recibidos durante la ejecución de
 
 ![Bytes Recibidos](/img/docs/artemis/performance/bytes-recibidos.webp)
 
+### Promedio General de Respuesta
+
+Este panel muestra el tiempo de respuesta promedio de todas las solicitudes realizadas durante la ejecución del plan de pruebas. Proporciona información sobre el rendimiento promedio de la aplicación y cómo está respondiendo a las solicitudes en general.
+
+![Promedio General de Respuesta](/img/docs/artemis/performance/promedio-general-respuesta.webp)
+
+| Status | Time |
+|--------|------|
+| Bueno | Menor a 1 segundo |
+| Regular | Entre 1 y 3 segundos |
+| Malo | Mayor a 3 segundos |
+
 ### Métricas generales
 
 Estos paneles incluye una variedad de estadísticas sobre las solicitudes realizadas durante la ejecución del plan de pruebas. Estas métricas incluyen:
