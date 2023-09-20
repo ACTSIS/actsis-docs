@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_actsis_docs=self.webpackChunk_actsis_docs||[]).push([[9829],{7085:function(s){s.exports=JSON.parse('{"name":"docusaurus-theme-search-algolia","id":"default"}')}}]);
