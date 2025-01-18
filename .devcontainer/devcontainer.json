@@ -26,11 +26,11 @@
   ],
   "forwardPorts": [3000],
   "containerUser": "vscode",
-  "postCreateCommand": "yarn install",
+  "postCreateCommand": "cd ./website && yarn install",
   "waitFor": "postCreateCommand",
   "features": {
     "node": {
-      "version": "18"
+      "version": "20"
     },
     "github-cli": "latest"
   }
