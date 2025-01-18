@@ -9,11 +9,11 @@ on:
 jobs:
   ejecutar-contenedor:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Chequeo de código
         uses: actions/checkout@v2
-      
+
       - name: Ejecutar contenedor de scrapping
         env:
           APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
