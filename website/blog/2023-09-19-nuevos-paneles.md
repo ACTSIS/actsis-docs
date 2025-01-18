@@ -10,6 +10,7 @@ hide_table_of_contents: false
 ---
 
 Para el continuo mejoramiento de nuestros servicios, hemos agregado nuevos paneles al tablero de monitoreo y pruebas de rendimiento. Estos paneles proporcionan información valiosa sobre la disponibilidad y el rendimiento de nuestros servicios, lo que nos permite identificar y resolver problemas de manera proactiva.
+<!--truncate-->
 
 ## Panel de Tasa de Disponibilidad en dashboard de monitoreo
 
