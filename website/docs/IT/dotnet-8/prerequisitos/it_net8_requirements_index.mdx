@@ -1,0 +1,39 @@
+---
+title: Requisitos Previos para .NET 8
+---
+
+### Paso 1: Descargar el instalador de .NET 8
+1. Ve a la [página oficial de descargas de .NET](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
+2. Selecciona para **hosting**, utiliza el siguiente enlace directo: [Runtime ASP.NET Core 8.0.11 Windows Hosting Bundle Installer](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-aspnetcore-8.0.11-windows-hosting-bundle-installer).
+3. Descarga el instalador correspondiente a tu sistema operativo (Windows).
+
+:::warning
+Requiere **ASP.NET Core Module v2**
+:::
+
+:::warning
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+
+:::
+
+### Paso 2: Ejecutar el instalador
+1. Navega a la ubicación donde descargaste el instalador.
+2. Haz doble clic en el archivo descargado para iniciar el proceso de instalación.
+3. Sigue las instrucciones del asistente de instalación:
+	- Acepta los términos y condiciones.
+	- Elige la ubicación de instalación (puedes dejar la predeterminada).
+	- Haz clic en `Instalar`.
+
+### Paso 3: Verificar la instalación
+1. Abre una ventana de **Command Prompt** (símbolo del sistema) o **PowerShell** con permisos de administrador.
+2. Escribe el siguiente comando para verificar que .NET 8 se haya instalado correctamente
+```bash
+dotnet --info
+```
+
+### Paso 4: Agregar WebSocket como característica del servidor
+1. En el **Server Manager**, selecciona `agregar roles y características`.
+2. En el asistente, avanza hasta llegar a la sección de **Roles del servidor** y selecciona **Web Server (IIS)** si no está ya seleccionado.
+3. En la sección de **Features (Características)**, busca y selecciona **WebSocket Protocol**.
+4. Completa el asistente para agregar esta característica.
