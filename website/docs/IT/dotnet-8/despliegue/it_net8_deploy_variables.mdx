@@ -3,15 +3,15 @@ id: it_net8_deploy_variables
 title: Variables de Entorno
 ---
 
-## Paso 4: Actualización de valores en archivo de configuración
+### Paso 1: Actualización de valores en archivo de configuración
 
-1. **Actualizar archivos sitio SAC**:
+1. Actualizar archivos sitio SAC:
 
 #### `appsettings.json` de cada sub-sitio web (**GenWeb**, **SacWeb**, **RedesWeb**, **RevisionesWeb**, **ProcesosWeb**)
 
 - Eliminar Servicios y configuración de conexiones
 
-![[Pasted image 20241211095743.png]]
+![appsettings.json](/img/docs/it/.net8/20241211095743.webp)
 
 -  Actualizar `ApiGatewayUrl` con la url del gateway
 - Actualizar `ConfigToken`
