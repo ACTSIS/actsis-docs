@@ -1,4 +1,6 @@
-const codeTheme = require('prism-react-renderer/themes/dracula');
+const { themes } = require('prism-react-renderer');
+const lightTheme = themes.github;
+const darkTheme = themes.dracula;
 
 module.exports = {
     title: 'Docs',
