@@ -58,7 +58,7 @@ module.exports = {
                     icon: 'linkedin',
                 }, ],
             }, ],
-            copyright: 'Inspirado de Infinum con ❤️ por el equipo Actsis',
+            copyright: 'Made with ❤️ on planet Earth.',
         },
         algolia: {
             appId: 'Q6UCWVTIW4',
