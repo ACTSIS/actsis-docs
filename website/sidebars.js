@@ -8,31 +8,39 @@ module.exports = {
             type: 'category',
             label: 'IT',
             items: [
-                // Aquí listamos todos los docs/carpetas dentro de /docs/IT
-
-                // Un doc llamado It.mdx => id "IT/It"
+                // Documento "IT/it_index" en la raíz de /docs/IT
                 'IT/it_index',
 
-                // Subcarpeta “content” con otra subcarpeta “manuales/dotnet-8/despliegue”
-                {
-                    type: 'doc',
-                    label: 'Prerequisitos',
-                    id: 'IT/dotnet-8/prerequisitos/it_net8_requirements_index',
-                },
+                // Nueva categoría "dotnet" dentro de IT
                 {
                     type: 'category',
-                    label: 'Despliegue',
+                    label: 'dotnet',
                     items: [
-                        'IT/dotnet-8/despliegue/it_net8_desploy_step1',
-                        'IT/dotnet-8/despliegue/it_net8_deploy_variables',
+                        // Un doc: prerequisitos
+                        {
+                            type: 'doc',
+                            label: 'Prerequisitos',
+                            id: 'IT/dotnet-8/prerequisitos/it_net8_requirements_index',
+                        },
+                        // Categoría: despliegue
+                        {
+                            type: 'category',
+                            label: 'Despliegue',
+                            items: [
+                                'IT/dotnet-8/despliegue/it_net8_desploy_step1',
+                                'IT/dotnet-8/despliegue/it_net8_deploy_variables',
+                            ],
+                        },
+                        // Un doc: pruebas
+                        {
+                            type: 'doc',
+                            id: 'IT/dotnet-8/pruebas/it_net8_pruebas',
+                        },
                     ],
-                },
-                {
-                    type: 'doc',
-                    id: 'IT/dotnet-8/pruebas/it_net8_pruebas',
                 },
             ],
         },
+
 
         {
             type: 'category',
