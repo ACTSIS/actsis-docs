@@ -36,6 +36,15 @@ module.exports = {
                             type: 'doc',
                             id: 'IT/dotnet-8/pruebas/it_net8_pruebas',
                         },
+/*                         {
+                            type: 'category',
+                            label: 'API',
+                            items: [{
+                                type: 'link',
+                                label: 'API Documentation',
+                                href: '/api/',
+                            }, ],
+                        }, */
                     ],
                 },
             ],
