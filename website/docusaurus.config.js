@@ -47,6 +47,12 @@ module.exports = {
                     label: 'Links',
                     position: 'right',
                 },
+                {
+                    to: '/api',
+                    activeBasePath: 'openapi',
+                    label: 'API',
+                    position: 'right',
+                },
             ],
         },
         footer: {
@@ -107,6 +113,32 @@ module.exports = {
                 },
             },
         ],
+
+        // Redocusaurus config
+        [
+            'redocusaurus',
+            {
+                // Plugin Options for loading OpenAPI files
+                specs: [
+                    // Pass it a path to a local OpenAPI YAML file
+                    {
+                        // Redocusaurus will automatically bundle your spec into a single file during the build
+                        spec: 'openapi/index.yaml',
+                        route: '/api/',
+                    },
+                    // You can also pass it a OpenAPI spec URL
+                    {
+                        spec: 'https://redocly.github.io/redoc/openapi.yaml',
+                        route: '/openapi/',
+                    },
+                ],
+                // Theme Options for modifying how redoc renders them
+                theme: {
+                    // Change with your site colors
+                    primaryColor: '#1e1e1e',
+                },
+            },
+        ]
     ],
     customFields: {
         keywords: [
