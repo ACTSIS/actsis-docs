@@ -5,6 +5,12 @@ import { PublicClientApplication, EventType } from '@azure/msal-browser';
 
 const msalInstance = new PublicClientApplication(msalConfig);
 
+msalInstance.initialize().then(() => {
+    console.log("MSAL inicializado correctamente");
+}).catch(error => {
+    console.error("Error inicializando MSAL:", error);
+});
+
 msalInstance.addEventCallback((event) => {
     if (event.eventType === EventType.LOGIN_SUCCESS && event.payload.account) {
         msalInstance.setActiveAccount(event.payload.account);
