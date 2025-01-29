@@ -1,0 +1,58 @@
+name: Algolia Scraping (Modo Desarrollo)
+
+on:
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types:
+      - completed
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: ./website
+
+jobs:
+  algolia-scraping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Instalar dependencias
+        run: |
+          npm install
+
+      - name: Construir sitio en modo desarrollo
+        run: |
+          npm run build:dev
+        env:
+          NODE_ENV: development
+
+      - name: Iniciar servidor local y ejecutar scraper
+        run: |
+          cd website/build
+
+          # Iniciar servidor en segundo plano
+          npx serve -l 8000 &
+
+          # Esperar que el servidor esté listo
+          sleep 10
+
+          # Usar configuración de desarrollo
+          cp ../config.dev.json ../config.json
+
+          # Verificar que el servidor está funcionando
+          curl -I http://localhost:8000
+
+          # Ejecutar scraper
+          docker run \
+            -e APPLICATION_ID=${{ secrets.APPLICATION_ID }} \
+            -e API_KEY=${{ secrets.API_KEY }} \
+            -e "CONFIG=$(cat ./website/config.json | jq -c . | tr -d '\n')" \
+            algolia/docsearch-scraper
