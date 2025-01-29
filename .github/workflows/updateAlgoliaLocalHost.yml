@@ -36,7 +36,7 @@ jobs:
 
       - name: Iniciar servidor local y ejecutar scraper
         run: |
-          cd website/build
+          cd build
 
           # Iniciar servidor en segundo plano
           npx serve -l 8000 &
