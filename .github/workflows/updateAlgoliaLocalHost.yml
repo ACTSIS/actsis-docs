@@ -9,8 +9,7 @@ on:
 
 jobs:
   algolia-scraping:
-    runs-on: ubuntu-latest
-
+    runs-on: [self-hosted]
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
@@ -40,7 +39,7 @@ jobs:
             npx serve -l 8000 &
 
             # Esperar que el servidor esté listo
-            sleep 10
+            sleep 30
 
             # Usar configuración de desarrollo
             cd ..
