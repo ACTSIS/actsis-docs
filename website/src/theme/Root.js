@@ -58,7 +58,7 @@ export default function Root({ children }) {
     }
 
     // Determina si la ruta actual apunta a la carpeta "IT"
-    const isProtectedRoute = location.pathname.startsWith('/docs/IT');
+    const isProtectedRoute = location.pathname.startsWith('/installs');
 
     return (
         <MsalProvider instance={msalInstance}>
