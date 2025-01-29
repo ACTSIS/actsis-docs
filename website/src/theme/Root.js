@@ -1,51 +1,90 @@
-import React from 'react';
-import { MsalProvider, AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
-import { msalConfig } from '../AuthConfig';
+import Loading from './Loading';
+import { msalConfig } from './AuthConfig';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import { Login } from '@actsis/docusaurus-theme';
+import { useLocation } from '@docusaurus/router';
+import React, { useState, useEffect } from 'react';
 import { PublicClientApplication, EventType } from '@azure/msal-browser';
+import { MsalProvider, AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
 
+// Instancia de MSAL
 const msalInstance = new PublicClientApplication(msalConfig);
 
-msalInstance.initialize().then(() => {
-    console.log("MSAL inicializado correctamente");
-}).catch(error => {
-    console.error("Error inicializando MSAL:", error);
-});
-
-msalInstance.addEventCallback((event) => {
-    if (event.eventType === EventType.LOGIN_SUCCESS && event.payload.account) {
-        msalInstance.setActiveAccount(event.payload.account);
-        console.log("Cuenta activa después del inicio de sesión:", event.payload.account);
-    }
-});
-
 export default function Root({ children }) {
-    const activeAccount = msalInstance.getActiveAccount();
+    const [authLoading, setAuthLoading] = useState(true);
+    const [activeAccount, setActiveAccount] = useState(null);
 
-    // Debug para verificar la cuenta activa
-    console.log("Cuenta activa al cargar la página:", activeAccount);
+    // Para saber qué ruta estás visitando en Docusaurus
+    const location = useLocation();
+
+    // Inicialización y manejo de estado de autenticación
+    useEffect(() => {
+        const initializeMsal = async () => {
+            try {
+                await msalInstance.initialize();
+                console.log("MSAL inicializado correctamente");
+
+                // Verificar si hay una sesión activa al cargar
+                const accounts = msalInstance.getAllAccounts();
+                if (accounts.length > 0) {
+                    setActiveAccount(accounts[0]);
+                    msalInstance.setActiveAccount(accounts[0]);
+                }
+            } catch (error) {
+                console.error("Error inicializando MSAL:", error);
+            } finally {
+                setAuthLoading(false);
+            }
+        };
+
+        // Configurar callback de eventos (LOGIN_SUCCESS / LOGOUT_SUCCESS)
+        const eventCallback = (event) => {
+            if (event.eventType === EventType.LOGIN_SUCCESS && event.payload.account) {
+                setActiveAccount(event.payload.account);
+                msalInstance.setActiveAccount(event.payload.account);
+            } else if (event.eventType === EventType.LOGOUT_SUCCESS) {
+                setActiveAccount(null);
+            }
+        };
+
+        const eventId = msalInstance.addEventCallback(eventCallback);
+        initializeMsal();
+
+        return () => msalInstance.removeEventCallback(eventId);
+    }, []);
+
+    if (authLoading) {
+        return <Loading />;
+    }
+
+    // Determina si la ruta actual apunta a la carpeta "IT"
+    const isProtectedRoute = location.pathname.startsWith('/docs/IT');
 
     return (
         <MsalProvider instance={msalInstance}>
-            <AuthenticatedTemplate>
-                {/* Muestra el contenido de Docusaurus si está autenticado */}
-                {children}
-            </AuthenticatedTemplate>
-            <UnauthenticatedTemplate>
-                {/* Muestra un botón de inicio de sesión si no está autenticado */}
-                <div style={{ margin: 'auto', textAlign: 'center' }}>
-                    <h1>Por favor, inicia sesión para ver el contenido</h1>
-                    <button
-                        onClick={() =>
-                            msalInstance
-                                .loginPopup()
-                                .then(() => console.log("Inicio de sesión exitoso"))
-                                .catch((e) => console.error("Error al iniciar sesión:", e))
-                        }
-                    >
-                        Iniciar sesión
-                    </button>
-                </div>
-            </UnauthenticatedTemplate>
+            {/*
+        Si la ruta está protegida, usamos los templated de Authenticated/Unauthenticated.
+        Si NO está protegida, simplemente mostramos children sin forzar login.
+      */}
+            {isProtectedRoute ? (
+                <>
+                    {/* Si el usuario ya está logueado, muestra el contenido */}
+                    <AuthenticatedTemplate>
+                        {children}
+                    </AuthenticatedTemplate>
+
+                    {/* Si NO está logueado, muestra la pantalla de “Por favor inicie sesión…” */}
+                    <UnauthenticatedTemplate>
+                        <Login
+                            msalInstance={msalInstance}
+                            setAuthLoading={setAuthLoading}
+                        />
+                    </UnauthenticatedTemplate>
+                </>
+            ) : (
+                // Si NO es ruta protegida, renderiza el contenido sin forzar login
+                children
+            )}
         </MsalProvider>
     );
 }
