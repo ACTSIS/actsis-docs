@@ -7,10 +7,6 @@ on:
       - completed
   workflow_dispatch:
 
-defaults:
-  run:
-    working-directory: ./website
-
 jobs:
   algolia-scraping:
     runs-on: ubuntu-latest
@@ -26,34 +22,37 @@ jobs:
 
       - name: Instalar dependencias
         run: |
-          npm install
+            cd website
+            npm install
 
       - name: Construir sitio en modo desarrollo
         run: |
-          npm run build:dev
+            cd website
+            npm run build:dev
         env:
           NODE_ENV: development
 
-      - name: Iniciar servidor local y ejecutar scraper
+      - name: Iniciar servidor local
         run: |
-          cd build
+            cd website/build
 
-          # Iniciar servidor en segundo plano
-          npx serve -l 8000 &
+            # Iniciar servidor en segundo plano
+            npx serve -l 8000 &
 
-          # Esperar que el servidor esté listo
-          sleep 10
+            # Esperar que el servidor esté listo
+            sleep 10
 
-          # Usar configuración de desarrollo
-          cd ..
-          cp config.dev.json config.json
+            # Usar configuración de desarrollo
+            cd ..
+            cp config.dev.json config.json
+            ls -la
 
-          # Verificar que el servidor está funcionando
-          curl -I http://localhost:8000
+            # Verificar que el servidor está funcionando
+            curl -I http://localhost:8000
 
-          # Ejecutar scraper
-          docker run \
-            -e APPLICATION_ID=${{ secrets.APPLICATION_ID }} \
-            -e API_KEY=${{ secrets.API_KEY }} \
-            -e "CONFIG=$(cat ./website/config.json | jq -c . | tr -d '\n')" \
-            algolia/docsearch-scraper
+      - name: Ejecutar contenedor de scrapping
+        env:
+            APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
+            API_KEY: ${{ secrets.API_KEY }}
+        run: |
+            docker run -e APPLICATION_ID=$APPLICATION_ID -e API_KEY=$API_KEY -e "CONFIG=$(cat ./website/config.json | tr -d '\n')" algolia/docsearch-scraper
