@@ -73,8 +73,8 @@ module.exports = {
             copyright: 'Made with ❤️ on planet Earth.',
         },
         algolia: {
-            appId: 'Q6UCWVTIW4',
-            apiKey: '22eb72a73f4a054c232c15ff770f10cd',
+            appId: 'ZXRIVNLAAG',
+            apiKey: '6c919b1589a4f917fd6a06ef17ed40be',
             indexName: 'actsis_docs',
             contextualSearch: true,
             placeholder: 'Buscar en la documentación de ACTSIS..',
@@ -119,27 +119,19 @@ module.exports = {
                 },
             },
         ],
-        // Redocusaurus config
         [
             'redocusaurus',
             {
-                // Plugin Options for loading OpenAPI files
-                specs: [
-                    // Pass it a path to a local OpenAPI YAML file
-                    {
-                        // Redocusaurus will automatically bundle your spec into a single file during the build
+                specs: [{
                         spec: 'openapi/index.yaml',
                         route: '/api/',
                     },
-                    // You can also pass it a OpenAPI spec URL
                     {
                         spec: 'https://redocly.github.io/redoc/openapi.yaml',
                         route: '/openapi/',
                     },
                 ],
-                // Theme Options for modifying how redoc renders them
                 theme: {
-                    // Change with your site colors
                     primaryColor: '#1e1e1e',
                 },
             },
