@@ -153,7 +153,7 @@ module.exports = {
         authConfig: {
             clientId: "aefd1102-5932-42c2-8385-6b1eb9937537",
             authority: "https://login.microsoftonline.com/6020db66-8a41-417f-9c87-691ad3ee560f",
-            redirectUri: "http://localhost:3000",
+            redirectUri: "https://docs.actsis.com",
             postLogoutRedirectUri: '/',
         },
         keywords: [
