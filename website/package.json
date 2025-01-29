@@ -22,9 +22,10 @@
         "url": "https://github.com/actsis/actsis-docs/issues"
     },
     "scripts": {
-        "docusaurus": "docusaurus",
-        "start": "docusaurus start",
-        "build": "docusaurus build",
+        "start": "cross-env NODE_ENV=development docusaurus start",
+        "start:prod": "cross-env NODE_ENV=production docusaurus start",
+        "build": "cross-env NODE_ENV=production docusaurus build",
+        "build:dev": "cross-env NODE_ENV=development docusaurus build",
         "deploy": "docusaurus deploy",
         "serve": "docusaurus serve",
         "clear": "docusaurus clear"
@@ -58,6 +59,7 @@
     "devDependencies": {
         "@docusaurus/module-type-aliases": "^3.7.0",
         "@docusaurus/types": "^3.7.0",
+        "cross-env": "^7.0.3",
         "gh-pages": "^6.0.0"
     },
     "engines": {
