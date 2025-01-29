@@ -45,7 +45,8 @@ jobs:
           sleep 10
 
           # Usar configuración de desarrollo
-          cp ../config.dev.json ../config.json
+          cd ..
+          cp config.dev.json config.json
 
           # Verificar que el servidor está funcionando
           curl -I http://localhost:8000
