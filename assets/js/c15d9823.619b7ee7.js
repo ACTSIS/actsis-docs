@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_actsis_docs=self.webpackChunk_actsis_docs||[]).push([[8146],{29328:s=>{s.exports=JSON.parse('{"metadata":{"permalink":"/blog","page":1,"postsPerPage":6,"totalPages":1,"totalCount":2,"blogDescription":"Articulos acerca de Actsis y sus mejoras en los servicios","blogTitle":"Blog Actsis"}}')}}]);

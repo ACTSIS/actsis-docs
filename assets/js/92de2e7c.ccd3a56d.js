@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_actsis_docs=self.webpackChunk_actsis_docs||[]).push([[6959],{293:function(s){s.exports=JSON.parse('{"label":"monitoreo","permalink":"/blog/tags/monitoreo","allTagsPath":"/blog/tags","count":1}')}}]);

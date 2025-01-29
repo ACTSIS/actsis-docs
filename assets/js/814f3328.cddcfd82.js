@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_actsis_docs=self.webpackChunk_actsis_docs||[]).push([[2535],{5641:function(s){s.exports=JSON.parse('{"title":"\xdaltimos posts","items":[{"title":"Nuevos paneles","permalink":"/blog/nuevos-paneles"},{"title":"Monitoreo sitios OCI","permalink":"/blog/monitoreo-sitios-oci"}]}')}}]);

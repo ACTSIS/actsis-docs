@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_actsis_docs=self.webpackChunk_actsis_docs||[]).push([[1903],{1912:s=>{s.exports=JSON.parse('{"blogBasePath":"/blog","blogTitle":"Blog Actsis","authorsListPath":"/blog/authors"}')}}]);

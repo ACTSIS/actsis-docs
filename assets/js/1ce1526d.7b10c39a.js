@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_actsis_docs=self.webpackChunk_actsis_docs||[]).push([[887],{33:function(s){s.exports=JSON.parse('{"label":"promedio","permalink":"/blog/tags/promedio","allTagsPath":"/blog/tags","count":1}')}}]);

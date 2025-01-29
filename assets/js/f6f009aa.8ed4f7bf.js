@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_actsis_docs=self.webpackChunk_actsis_docs||[]).push([[3730],{86482:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"installs"}')}}]);
