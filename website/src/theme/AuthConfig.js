@@ -1,4 +1,5 @@
 import { LogLevel } from "@azure/msal-browser";
+const { customFields } = require('../../docusaurus.config.js');
 
 /**
  * Configuration object to be passed to MSAL instance on creation.
@@ -8,14 +9,15 @@ import { LogLevel } from "@azure/msal-browser";
 
 export const msalConfig = {
     auth: {
-        clientId: "aefd1102-5932-42c2-8385-6b1eb9937537",
-        authority: "https://login.microsoftonline.com/6020db66-8a41-417f-9c87-691ad3ee560f",
-        redirectUri: "http://localhost:3000",
-        postLogoutRedirectUri: '/',
+        clientId: customFields.authConfig.clientId,
+        authority: customFields.authConfig.authority,
+        redirectUri: customFields.authConfig.redirectUri,
+        postLogoutRedirectUri: customFields.authConfig.postLogoutRedirectUri,
     },
+
     cache: {
-        cacheLocation: "localStorage", // This configures where your cache will be stored
-        storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
+        cacheLocation: "localStorage",
+        storeAuthStateInCookie: false,
     },
     system: {
         loggerOptions: {
