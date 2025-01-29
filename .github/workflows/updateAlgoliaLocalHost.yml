@@ -21,14 +21,14 @@ jobs:
 
       - name: Instalar dependencias
         run: |
-            cd website
-            npm install
-            npm install wait-on
+          cd website
+          npm install
+          npm install wait-on
 
       - name: Construir sitio en modo desarrollo
         run: |
-            cd website
-            npm run build:dev
+          cd website
+          npm run build:dev
         env:
           NODE_ENV: development
 
@@ -46,10 +46,10 @@ jobs:
 
       - name: Ejecutar contenedor de scrapping
         env:
-            APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
-            API_KEY: ${{ secrets.API_KEY }}
+          APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
+          API_KEY: ${{ secrets.API_KEY }}
         run: |
-            docker run -e APPLICATION_ID=$APPLICATION_ID -e API_KEY=$API_KEY -e "CONFIG=$(cat ./website/config.dev.json | tr -d '\n')" algolia/docsearch-scraper
+          docker run -e APPLICATION_ID=$APPLICATION_ID -e API_KEY=$API_KEY -e "CONFIG=$(cat ./website/config.dev.json | tr -d '\n')" algolia/docsearch-scraper
 
       - name: Detener servidor
         if: always()
