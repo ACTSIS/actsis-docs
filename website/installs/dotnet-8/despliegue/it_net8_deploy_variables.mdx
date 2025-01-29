@@ -1,0 +1,118 @@
+---
+id: it_net8_deploy_variables
+title: Variables de Entorno
+---
+
+### Paso 1: Actualización de valores en archivo de configuración
+
+1. Actualizar archivos sitio SAC:
+
+#### `appsettings.json` de cada sub-sitio web (**GenWeb**, **SacWeb**, **RedesWeb**, **RevisionesWeb**, **ProcesosWeb**)
+
+- Eliminar Servicios y configuración de conexiones
+
+![appsettings.json](/img/docs/it/.net8/20241211095743.webp)
+
+-  Actualizar `ApiGatewayUrl` con la url del gateway
+- Actualizar `ConfigToken`
+- Actualizar el `LogoutUrl` con la url de la aplicación principal, por ejemplo: "https://sacnet-rc.actsis.com/GEN/Vistas/Login/LOGOUT_GEN.aspx"
+- Actualizar archivo **log4net.config** de cada sub-sitio del directorio de los logs.
+
+#### `web.config` del sitio principal/raíz
+
+- Actualizar las URL del  Gateway en `ApiGatewayUrl`.
+- Actualizar variable `va_directorio_logs` del directorio de los logs.
+
+#### **Actualizar archivo** **Web.config** **en sub-sitios SAC (Apis):**
+
+- Ingresar valor para `JWT_SECRET_KEY`, `JWT_AUDIENCE_TOKEN`, `JWT_ISSUER_TOKEN`, `JWT_EXPIRE_MINUTES`(recomendado 3440)
+- Actualizar cadenas de conexiones
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "Connections": [
+    {
+      "Name": "CENS DES",
+      "Description": "PRUEBAS-CENS",
+      "Host": "###.###.###.###",
+      "Port": "####",
+      "ServiceName": "#####",
+      "UserId": "SAC_CNX",
+      "Password": "******",
+      "Domain": "D_CENS_DES"
+    },
+    {
+      "Name": "EDEQ DES",
+      "Description": "PRUEBAS-EDEQ",
+      "Host": "###.###.###.###",
+      "Port": "####",
+      "ServiceName": "#####",
+      "UserId": "SAC_CNX",
+      "Password": "******",
+      "Domain": "D_EDEQ_DES"
+    },
+    {
+      "Name": "CHEC DES",
+      "Description": "PRUEBAS-CHEC",
+      "Host": "###.###.###.###",
+      "Port": "####",
+      "ServiceName": "#####",
+      "UserId": "SAC_CNX",
+      "Password": "******",
+      "Domain": "D_CHEC_DES"
+    }
+  ],
+  "Services": [
+    {
+      "App": "SAC",
+      "Module": "REVISIONES",
+      "Host": "https://sac-drondon.actsis.com/RevisionesWeb",
+      "ApiPath": "/sac/revisiones"
+    },
+    {
+      "App": "SAC",
+      "Module": "ADMINISTRACION",
+      "Host": "https://sac-drondon.actsis.com/GenWeb",
+      "ApiPath": "/sac/gen"
+    },
+    {
+      "App": "SAC",
+      "Module": "PROCESOS",
+      "Host": "https://sac-drondon.actsis.com/ProcesosWeb",
+      "ApiPath": "/sac/procesos"
+    },
+    {
+      "App": "SAC",
+      "Module": "REDES",
+      "Host": "https://sac-drondon.actsis.com/RedesWeb",
+      "ApiPath": "/sac/redes"
+    },
+    {
+      "App": "SAC",
+      "Module": "",
+      "Host": "",
+      "ApiPath": "/sac"
+    },
+    {
+      "App": "GEN",
+      "Module": "REPORT",
+      "Host": "",
+      "ApiPath": "https://genreportesrest-drondon.actsis.com/api"
+    },
+    {
+      "App": "SAC",
+      "Module": "REPORT",
+      "Host": "",
+      "ApiPath": "https://genreportesrest-drondon.actsis.com/api"
+    }
+  ],
+  "SeedToken": "F34FGXDWBOcYXpvQIkd4dHa0b1ckaZ15aNXzFDWVism968FV7Z58G4yMvAjMazUwRWpudC3EoDKQ"
+}
+```
