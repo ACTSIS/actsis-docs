@@ -31,13 +31,13 @@ export default function Home() {
 				imageUrl={useBaseUrl(`img/homepage/block-cards.svg`)}
 				gray
 			>
-				<b>ACTSIS LTDA</b> es una empresa colombiana líder en la prestación de soluciones 
+				<b>ACTSIS LTDA</b> es una empresa colombiana líder en la prestación de soluciones
 				informáticas a empresas de servicios públicos, con más de 29 años de experiencia.
 				<br /> <br />
-				Nuestra dedicación radica en ofrecer soluciones innovadoras, integrales y confiables, 
-				respaldadas por un equipo competente y comprometido con la constante actualización tecnológica. 
-				Estamos enfocados en el mejoramiento continuo y en la satisfacción total del cliente. 
-				Gestionamos los riesgos y las oportunidades con una visión estratégica del entorno, 
+				Nuestra dedicación radica en ofrecer soluciones innovadoras, integrales y confiables,
+				respaldadas por un equipo competente y comprometido con la constante actualización tecnológica.
+				Estamos enfocados en el mejoramiento continuo y en la satisfacción total del cliente.
+				Gestionamos los riesgos y las oportunidades con una visión estratégica del entorno,
 				asegurando que cada paso que damos sea un paso hacia adelante.
 				<br /> <br />
 				¡Nunca querrás volver atrás!
