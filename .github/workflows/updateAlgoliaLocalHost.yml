@@ -9,7 +9,7 @@ on:
 
 jobs:
   algolia-scraping:
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux, X64]
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
