@@ -7,24 +7,33 @@ import React, { useState, useEffect } from 'react';
 import { PublicClientApplication, EventType } from '@azure/msal-browser';
 import { MsalProvider, AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
 
-// Instancia de MSAL
-const msalInstance = new PublicClientApplication(msalConfig);
+// Detectar entorno de desarrollo
+const isDevEnvironment = process.env.NODE_ENV === 'development';
+
+// Crear instancia de MSAL solo en producción
+let msalInstance = null;
+if (!isDevEnvironment) {
+    msalInstance = new PublicClientApplication(msalConfig);
+}
 
 export default function Root({ children }) {
-    const [authLoading, setAuthLoading] = useState(true);
+    const [authLoading, setAuthLoading] = useState(!isDevEnvironment);
     const [activeAccount, setActiveAccount] = useState(null);
-
-    // Para saber qué ruta estás visitando en Docusaurus
     const location = useLocation();
 
-    // Inicialización y manejo de estado de autenticación
     useEffect(() => {
+        if (isDevEnvironment) {
+            // Bypass completo de autenticación en desarrollo
+            setAuthLoading(false);
+            return;
+        }
+
+        // Lógica de autenticación solo para producción
         const initializeMsal = async () => {
             try {
                 await msalInstance.initialize();
                 console.log("MSAL inicializado correctamente");
 
-                // Verificar si hay una sesión activa al cargar
                 const accounts = msalInstance.getAllAccounts();
                 if (accounts.length > 0) {
                     setActiveAccount(accounts[0]);
@@ -37,7 +46,6 @@ export default function Root({ children }) {
             }
         };
 
-        // Configurar callback de eventos (LOGIN_SUCCESS / LOGOUT_SUCCESS)
         const eventCallback = (event) => {
             if (event.eventType === EventType.LOGIN_SUCCESS && event.payload.account) {
                 setActiveAccount(event.payload.account);
@@ -57,34 +65,31 @@ export default function Root({ children }) {
         return <Loading />;
     }
 
-    // Determina si la ruta actual apunta a la carpeta "IT"
     const isProtectedRoute = location.pathname.startsWith('/installs');
 
     return (
-        <MsalProvider instance={msalInstance}>
-            {/*
-        Si la ruta está protegida, usamos los templated de Authenticated/Unauthenticated.
-        Si NO está protegida, simplemente mostramos children sin forzar login.
-      */}
-            {isProtectedRoute ? (
-                <>
-                    {/* Si el usuario ya está logueado, muestra el contenido */}
-                    <AuthenticatedTemplate>
-                        {children}
-                    </AuthenticatedTemplate>
-
-                    {/* Si NO está logueado, muestra la pantalla de “Por favor inicie sesión…” */}
-                    <UnauthenticatedTemplate>
-                        <Login
-                            msalInstance={msalInstance}
-                            setAuthLoading={setAuthLoading}
-                        />
-                    </UnauthenticatedTemplate>
-                </>
-            ) : (
-                // Si NO es ruta protegida, renderiza el contenido sin forzar login
+        <>
+            {isDevEnvironment ? (
+                // Modo desarrollo: Bypass completo de autenticación
                 children
+            ) : (
+                // Modo producción: Lógica original de autenticación
+                <MsalProvider instance={msalInstance}>
+                    {isProtectedRoute ? (
+                        <>
+                            <AuthenticatedTemplate>{children}</AuthenticatedTemplate>
+                            <UnauthenticatedTemplate>
+                                <Login
+                                    msalInstance={msalInstance}
+                                    setAuthLoading={setAuthLoading}
+                                />
+                            </UnauthenticatedTemplate>
+                        </>
+                    ) : (
+                        children
+                    )}
+                </MsalProvider>
             )}
-        </MsalProvider>
+        </>
     );
 }
