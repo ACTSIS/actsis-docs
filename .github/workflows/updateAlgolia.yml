@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Chequeo de código
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4.2.2
 
       - name: Ejecutar contenedor de scrapping
         env:
