@@ -25,7 +25,7 @@ jobs:
           docker run -d \
             --name docusaurus-server \
             --network scraping-network \
-            -p 3333:3000 \
+            -p 3000:3000 \
             docusaurus-site
 
       - name: Ejecutar scraper Algolia
