@@ -31,6 +31,22 @@ jobs:
             -p 3000:3000 \
             docusaurus-site
 
+      - name: Validar servidor funcionando
+        timeout-minutes: 3
+        run: |
+          # Intenta hasta 12 veces con 15 segundos entre cada intento
+          for i in {1..12}; do
+            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000)
+            if [ "$HTTP_STATUS" -eq 200 ]; then
+              echo "✅ Servidor funcionando correctamente"
+              exit 0
+            fi
+            echo "⏳ Intento $i/12 - Esperando respuesta (Status: $HTTP_STATUS)"
+            sleep 15
+          done
+          echo "❌ El servidor no respondió con 200 después de 3 minutos"
+          exit 1
+
       - name: Ejecutar scraper Algolia
         run: |
           docker run \
