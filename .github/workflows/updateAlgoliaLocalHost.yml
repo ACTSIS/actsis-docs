@@ -10,63 +10,36 @@ on:
 jobs:
   algolia-scraping:
     runs-on: ubuntu-latest
-#    runs-on: [self-hosted, Linux, X64]
+    #    runs-on: [self-hosted, Linux, X64]
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18"
-
-      - name: Instalar dependencias
+      - name: Configurar Docker
         run: |
-          cd website
-          npm install
-          npm install wait-on
+          docker network create scraping-network
 
-      - name: Construir sitio en modo desarrollo
+      - name: Construir y ejecutar sitio Docusaurus
         run: |
-          cd website
-          npm run build:dev
-        env:
-          NODE_ENV: development
+          docker build -t docusaurus-site -f ./website/Dockerfile .
+          docker run -d \
+            --name docusaurus-server \
+            --network scraping-network \
+            -p 3333:3000 \
+            docusaurus-site
 
-      - name: Iniciar servidor (background)
-        run: |
-          cd website
-          nohup npm run start > server.log 2>&1 &
-          echo "SERVER_PID=$!" >> $GITHUB_ENV
-
-      - name: Obtener IP del host
-        id: get-ip
-        run: |
-          IP=$(hostname -I | awk '{print $1}')
-          echo "HOST_IP=$IP" >> $GITHUB_ENV
-          echo "URL=http://$IP:3000" >> $GITHUB_ENV
-
-      - name: Verificar servidor listo
-        run: |
-          cd website
-          npx wait-on http://localhost:3000 --timeout 120000
-          echo "✅ Servidor listo en http://localhost:3000"
-
-      - name: Mostrar configuración final
-        run: |
-            echo "IP del host: ${{ env.HOST_IP }}"
-            echo "Configuración modificada:"
-            sed 's/localhost/${{ env.HOST_IP }}/g' ./website/config.dev.json
-
-      - name: Ejecutar scraper
+      - name: Ejecutar scraper Algolia
         run: |
           docker run \
+            --network scraping-network \
             -e APPLICATION_ID=${{ secrets.APPLICATION_ID }} \
             -e API_KEY=${{ secrets.API_KEY }} \
-            -e "CONFIG=$(sed 's/localhost/${{ env.HOST_IP }}/g' ./website/config.dev.json | tr -d '\n')" \
+            -e "CONFIG=$(cat ./website/config.docker.json)" \
             algolia/docsearch-scraper
 
-      - name: Detener servidor
+      - name: Limpiar recursos
         if: always()
         run: |
-          kill -TERM ${{ env.SERVER_PID }} || true
+          docker stop docusaurus-server || true
+          docker rm docusaurus-server || true
+          docker network rm scraping-network || true

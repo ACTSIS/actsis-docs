@@ -1,7 +1,7 @@
 {
     "index_name": "actsis_docs",
-    "start_urls": ["http://_HOST_IP_:3000"],
-    "sitemap_urls": ["http://_HOST_IP_:3000/sitemap.xml"],
+    "start_urls": ["http://docusaurus-server:3333"],
+    "sitemap_urls": ["http://docusaurus-server:3333/sitemap.xml"],
     "sitemap_alternate_links": true,
     "stop_urls": ["/tests"],
     "selectors": {
