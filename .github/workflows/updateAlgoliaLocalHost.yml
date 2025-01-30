@@ -39,18 +39,26 @@ jobs:
           nohup npm run start > server.log 2>&1 &
           echo "SERVER_PID=$!" >> $GITHUB_ENV
 
+      - name: Obtener IP del host
+        id: get-ip
+        run: |
+          IP=$(hostname -I | awk '{print $1}')
+          echo "HOST_IP=$IP" >> $GITHUB_ENV
+          echo "URL=http://$IP:3000" >> $GITHUB_ENV
+
       - name: Verificar servidor listo
         run: |
           cd website
           npx wait-on http://localhost:3000 --timeout 120000
           echo "✅ Servidor listo en http://localhost:3000"
 
-      - name: Ejecutar contenedor de scrapping
-        env:
-          APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
-          API_KEY: ${{ secrets.API_KEY }}
+      - name: Ejecutar scraper
         run: |
-          docker run -e APPLICATION_ID=$APPLICATION_ID -e API_KEY=$API_KEY -e "CONFIG=$(cat ./website/config.dev.json | tr -d '\n')" algolia/docsearch-scraper
+          docker run \
+            -e APPLICATION_ID=${{ secrets.APPLICATION_ID }} \
+            -e API_KEY=${{ secrets.API_KEY }} \
+            -e "CONFIG=$(sed 's/localhost/${{ env.HOST_IP }}/g' ./website/config.dev.json | tr -d '\n')" \
+            algolia/docsearch-scraper
 
       - name: Detener servidor
         if: always()
