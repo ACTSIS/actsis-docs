@@ -52,6 +52,12 @@ jobs:
           npx wait-on http://localhost:3000 --timeout 120000
           echo "✅ Servidor listo en http://localhost:3000"
 
+      - name: Mostrar configuración final
+        run: |
+            echo "IP del host: ${{ env.HOST_IP }}"
+            echo "Configuración modificada:"
+            sed 's/localhost/${{ env.HOST_IP }}/g' ./website/config.dev.json
+
       - name: Ejecutar scraper
         run: |
           docker run \
