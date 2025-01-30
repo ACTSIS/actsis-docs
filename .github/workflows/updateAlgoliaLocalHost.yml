@@ -37,7 +37,7 @@ jobs:
             --network scraping-network \
             -e APPLICATION_ID=${{ secrets.APPLICATION_ID }} \
             -e API_KEY=${{ secrets.API_KEY }} \
-            -e "CONFIG=$(cat ./website/config.docker.json)" \
+            -e "CONFIG=$(cat ./config.docker.json)" \
             algolia/docsearch-scraper
 
       - name: Limpiar recursos
