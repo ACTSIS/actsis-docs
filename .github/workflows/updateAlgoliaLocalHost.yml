@@ -24,7 +24,7 @@ jobs:
 
       - name: Construir y ejecutar sitio Docusaurus
         run: |
-          docker build -t docusaurus-site -f ./website/Dockerfile .
+          docker build -t docusaurus-site .
           docker run -d \
             --name docusaurus-server \
             --network scraping-network \
