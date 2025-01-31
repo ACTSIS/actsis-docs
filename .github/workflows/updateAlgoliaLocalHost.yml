@@ -10,49 +10,55 @@ on:
 defaults:
   run:
     working-directory: ./website
-
 jobs:
   algolia-scraping:
     runs-on: ubuntu-latest
-
+    #    runs-on: [self-hosted, Linux, X64]
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18"
-
-      - name: Instalar dependencias
+      - name: Configurar Docker
         run: |
-          npm install
+          docker network create scraping-network
 
-      - name: Construir sitio en modo desarrollo
+      - name: Construir y ejecutar sitio Docusaurus
         run: |
-          npm run build:dev
-        env:
-          NODE_ENV: development
+          docker build -t docusaurus-site .
+          docker run -d \
+            --name docusaurus-server \
+            --network scraping-network \
+            -p 3000:3000 \
+            docusaurus-site
 
-      - name: Iniciar servidor local y ejecutar scraper
+      - name: Validar servidor funcionando
+        timeout-minutes: 3
         run: |
-          cd build
+          # Intenta hasta 12 veces con 15 segundos entre cada intento
+          for i in {1..12}; do
+            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000)
+            if [ "$HTTP_STATUS" -eq 200 ]; then
+              echo "✅ Servidor funcionando correctamente"
+              exit 0
+            fi
+            echo "⏳ Intento $i/12 - Esperando respuesta (Status: $HTTP_STATUS)"
+            sleep 15
+          done
+          echo "❌ El servidor no respondió con 200 después de 3 minutos"
+          exit 1
 
-          # Iniciar servidor en segundo plano
-          npx serve -l 8000 &
-
-          # Esperar que el servidor esté listo
-          sleep 10
-
-          # Usar configuración de desarrollo
-          cp ../config.dev.json ../config.json
-
-          # Verificar que el servidor está funcionando
-          curl -I http://localhost:8000
-
-          # Ejecutar scraper
+      - name: Ejecutar scraper Algolia
+        run: |
           docker run \
+            --network scraping-network \
             -e APPLICATION_ID=${{ secrets.APPLICATION_ID }} \
             -e API_KEY=${{ secrets.API_KEY }} \
-            -e "CONFIG=$(cat ./website/config.json | jq -c . | tr -d '\n')" \
+            -e "CONFIG=$(cat ./config.docker.json)" \
             algolia/docsearch-scraper
+
+      - name: Limpiar recursos
+        if: always()
+        run: |
+          docker stop docusaurus-server || true
+          docker rm docusaurus-server || true
+          docker network rm scraping-network || true
