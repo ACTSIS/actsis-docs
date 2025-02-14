@@ -21,21 +21,21 @@ Se refiere al intervalo de tiempo entre cada prueba de monitoreo. Por ejemplo, s
 
 ### ID de Ejecución
 
-Dentro de las pruebas de rendimiento con JMeter, cada tarea de las pruebas genera un ID, está puede cambiar si se ejecuta la prueba de nuevo, por lo que se debe seleccionar el ID de la ejecución que se desea monitorear.
+Dentro de las pruebas de rendimiento, cada tarea genera un ID único que puede cambiar si la prueba se ejecuta nuevamente. Por esta razón, es necesario seleccionar el ID correspondiente a la ejecución que se desea monitorear.
 
-Se puede identificar fácilmente ya que tiene como prefijo la fecha de ejecución, por ejemplo `20230802-`.
+El ID se puede identificar fácilmente, ya que tiene como prefijo la fecha de ejecución. Por ejemplo: `20230802-`.
 
 ### Tipo de muestreo
 
-Se refiere al tipo de muestreo que se desea visualizar en el tablero, por defecto está en `Todos` para mostrar todos los tipos de muestreo.
+Se refiere al tipo de muestreo que se desea visualizar en el tablero. Por defecto, está en `Todos`, lo que permite mostrar todos los tipos de muestreo disponibles.
 
 ### Test Start y Test End
 
 Estos son utilizados para que el tablero muestre los datos de un rango cuando las pruebas han empezado y finalizado, es decir, que no se visualizarán datos de pruebas que no se han ejecutado.
 
-## **General**
+## **Métricas en el Tablero de Monitoreo**
 
-El dashboard de Grafana para el monitoreo del rendimiento de la aplicación incluye varias métricas importantes que se muestran en diferentes paneles. A continuación se detalla cada una de estas métricas:
+Dentro del tablero de monitoreo, se muestran las principales métricas relacionadas con el desempeño de los servicios. Estas métricas ayudan a identificar problemas, optimizar recursos y garantizar el correcto funcionamiento del sistema.
 
 ### Usuarios Activos
 

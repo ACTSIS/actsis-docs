@@ -3,13 +3,13 @@ id: dashboard-monitoreo
 title: Tablero de Monitoreo
 ---
 
-En ACTSIS, contamos con una amplia gama de servicios, lo que puede dificultar el seguimiento individual de sus estados. Para abordar este desafío, hemos desarrollado un Tablero de Monitoreo que nos permite visualizar de manera centralizada la condición de cada servicio, así como sus métricas clave.
+En ACTSIS, contamos con una amplia gama de servicios, lo que puede dificultar el seguimiento individual de sus estados. Para abordar este desafío, hemos desarrollado un **TABLERO DE MONITOREO**, este dashboard nos permite visualizar de manera centralizada la condición de cada servicio, así como sus métricas clave.
 
 La implementación y mantenimiento de un monitoreo web efectivo desempeñan un papel fundamental en nuestra operativa. Este enfoque no solo garantiza la disponibilidad continua de nuestros servicios, sino que también capacita a los administradores de red para anticipar problemas al descubrir patrones de consumo de recursos y rendimiento que, de lo contrario, podrían pasar inadvertidos.
 
-Nuestras herramientas avanzadas de monitoreo de servidores web ofrecen la capacidad de identificar y abordar problemas, e incluso prevenir posibles inconvenientes en el rendimiento, en una fase temprana, a menudo antes de que los usuarios sean conscientes de dichos problemas.
+Nuestras herramientas avanzadas de monitoreo de nuestros servicios web ofrecen la capacidad de identificar y abordar problemas, e incluso prevenir posibles inconvenientes en el rendimiento, en una fase temprana, a menudo antes de que los usuarios sean conscientes de dichos problemas.
 
-En resumen, nuestro Tablero de Monitoreo se erige como un pilar esencial para mantener la calidad operativa. Proporciona una visión integral de la salud de nuestros servicios, permitiendo a nuestros equipos tomar medidas proactivas y mantener altos estándares de eficiencia.
+En resumen, nuestro **TABLERO DE MONITOREO** es un pilar esencial para mantener la calidad operativa. Proporciona una visión integral del estado de nuestros servicios, permitiendo a nuestros equipos tomar medidas proactivas y mantener altos estándares de eficiencia.
 
 ![Panel](/img/docs/artemis/fullpage-dashboard-monitoreo.webp)
 
@@ -21,7 +21,13 @@ El intervalo de monitoreo se refiere al intervalo de tiempo entre cada prueba de
 
 ### Instance
 
-Se refiere al servicio web seleccionado, por defecto está en `Todo` para mostrar todos los servicios.
+En un dashboard, los parámetros son variables dinámicas que el usuario puede ajustar para filtrar la información que desea visualizar.
+
+El parámetro **Instance** permite seleccionar un servicio web específico para monitorear. Por defecto, está configurado en `Todo` para mostrar todos los servicios disponibles, pero el usuario puede elegir una instancia particular para enfocarse en datos específicos.
+
+Por ejemplo, en el siguiente menú desplegable, puedes elegir entre varias instancias o servicios disponibles según tus necesidades.
+
+![Panel](/img/docs/artemis/monitoreo/instance.webp)
 
 ## **Paneles del Tablero de Monitoreo**
 
@@ -34,6 +40,13 @@ La gráfica representa el tiempo de respuesta del sitio web en segundos en el ej
 Por lo general, un tiempo de respuesta bajo se considera un indicativo de un sitio web rápido y un alto tiempo de respuesta puede afectar negativamente la experiencia del usuario.
 
 ![Panel](/img/docs/artemis/monitoreo/duración-exploracion-global.webp)
+
+En el gráfico mostrado, cada línea de color representa un **servicio (o instancia)** que está siendo monitoreado. Estas líneas permiten visualizar el tiempo de respuesta específico de cada servicio web en el intervalo seleccionado. Por ejemplo:
+
+- La línea **verde** corresponde al servicio `https://api.actsis.com/SacWs/api/version`.
+- La línea **amarilla** corresponde al servicio `https://app.actsis.com/GEN/Vistas/Login/LOGIN_GEN.aspx`.
+
+El análisis de estas líneas ayuda a identificar posibles problemas de rendimiento en servicios individuales, lo que permite tomar medidas específicas según sea necesario.
 
 ### Tasa de Disponibilidad
 
@@ -65,11 +78,7 @@ Los códigos de estado HTTP indican si una solicitud HTTP específica se ha comp
 
 ### HTTP Version
 
-La versión de HTTP se refiere a la versión del protocolo HTTP que se utiliza para enviar la solicitud. La versión de HTTP se puede utilizar para determinar si el sitio web está utilizando una versión obsoleta del protocolo HTTP.
-
-Cada versión de HTTP especifica su propio conjunto de reglas y directrices para la transmisión de datos entre el servidor y el navegador. Por lo tanto, el protocolo HTTP se ha actualizado con el tiempo para adaptarse a las necesidades cambiantes de la web.
-
-Es importante tener en cuenta la versión de HTTP que se utiliza en una solicitud para garantizar que los servidores web y los navegadores estén en sintonía entre sí. Si la versión HTTP utilizada por un navegador no es compatible con la versión del servidor web, puede haber problemas de comunicación y la solicitud podría fallar.
+La versión de HTTP indica el protocolo que se utiliza para la comunicación entre el cliente (como un navegador web) y el servidor. En este caso, el número **2** se refiere a **HTTP/2**, una versión del protocolo que mejora el rendimiento y la eficiencia en comparación con versiones anteriores, como HTTP/1.1. Por ejemplo, HTTP/2 permite la multiplexación, que acelera la carga de recursos en un sitio web.
 
 ![Panel](/img/docs/artemis/monitoreo/http-version.webp)
 
@@ -91,7 +100,7 @@ Se compone de varias métricas que describen diferentes partes del proceso de tr
 
 - **Tls:** se refiere al tiempo que se tarda en establecer una conexión segura TLS/SSL con el servidor.
 
-- *Transfer:* se refiere al tiempo que se tarda en transferir los datos de la respuesta desde el servidor al cliente.
+- **Transfer:** se refiere al tiempo que se tarda en transferir los datos de la respuesta desde el servidor al cliente.
 
 - **Processing:** se refiere al tiempo que se tarda en procesar la respuesta recibida antes de que pueda ser renderizada en el navegador. Esta métrica incluye el tiempo que se tarda en decodificar los datos de la respuesta y el tiempo que tarda el navegador en renderizar la página.
 
@@ -107,11 +116,22 @@ Muestra el tiempo restante antes de que caduque el certificado SSL del sitio web
 
 ### Duración de la prueba
 
-Se refiere al tiempo que tarda un sistema de monitoreo en realizar una prueba para verificar el estado de un servicio o recurso en un sitio web u otro sistema.
+Aquí tienes una versión más clara y sin términos técnicos complejos:
 
-Por ejemplo, un sistema de monitoreo puede estar configurado para realizar pruebas periódicas a un sitio web para comprobar que está en funcionamiento correctamente. El tiempo que tarda la prueba en ejecutarse y proporcionar una respuesta es la duración de la prueba.
+---
 
-La duración de la prueba es una métrica importante porque puede indicar si hay algún problema de rendimiento o latencia en el sistema de monitoreo o en el sitio web. Si la duración de la prueba es demasiado larga, puede indicar un problema de rendimiento en el sistema de monitoreo o en la red que está interfiriendo con las pruebas. Si la duración de la prueba es demasiado corta, puede indicar que la prueba no está configurada adecuadamente para verificar el estado completo del servicio o recurso.
+**Duración de la prueba**
+
+La **duración de la prueba** mide el tiempo que tarda un sistema de monitoreo en obtener una respuesta de un servicio o recurso. Este indicador refleja la rapidez o lentitud con la que un servicio responde a las solicitudes.
+
+#### ¿Por qué es importante?
+La duración de la prueba es una métrica clave para evaluar el rendimiento y la estabilidad de un servicio web. Puede ayudar a identificar dos posibles situaciones:
+
+1. **Demora excesiva:** Si el tiempo es alto (por ejemplo, varios segundos), podría significar que el servicio está sobrecargado, tiene problemas de rendimiento o enfrenta latencia en la red. Esto podría afectar negativamente la experiencia del usuario.
+2. **Tiempo inusualmente corto:** Si el tiempo es demasiado bajo, podría indicar que la prueba no está evaluando completamente el estado del servicio, lo que podría generar resultados poco fiables.
+
+#### Ejemplo:
+Un sistema de monitoreo realiza pruebas periódicas para verificar que un servicio esté funcionando correctamente. Si la duración de la prueba es alta (por ejemplo, más de 3 segundos), podría ser señal de que el servicio está tardando demasiado en responder, lo que puede indicar un problema que requiere atención.
 
 ![Panel](/img/docs/artemis/grafana-panel.webp)
 

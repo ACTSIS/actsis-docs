@@ -18,6 +18,10 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v4
 
+      - name: Eliminar Root.js
+        run: |
+          rm -f src/theme/Root.js
+
       - name: Configurar Docker
         run: |
           docker network create scraping-network

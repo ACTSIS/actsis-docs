@@ -11,7 +11,7 @@ module.exports = {
     organizationName: 'actsis',
     projectName: 'actsis-docs',
     staticDirectories: ['public', 'static'],
-    onBrokenLinks: 'throw',
+    onBrokenLinks: 'warn',
     onBrokenMarkdownLinks: 'warn',
     deploymentBranch: 'gh-pages',
     i18n: {

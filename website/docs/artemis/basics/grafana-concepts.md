@@ -7,7 +7,7 @@ Grafana es una herramienta de visualización de código abierto para analizar y 
 
 ## ¿Qué es un panel?
 
-Un panel es un lienzo en blanco, donde se pueden agregar paneles para mostrar métricas e información de forma visual.
+Un panel es un lienzo en blanco dentro de Grafana que permite visualizar métricas o información relevante de forma visual y organizada. Cada panel puede configurarse para mostrar un conjunto específico de datos en distintos formatos, como gráficos de líneas, barras o tablas, según las necesidades del usuario.
 
 Por ejemplo, en la siguiente imagen se muestra un panel con información de la duración de una prueba de rendimiento en segundos.
 
@@ -15,9 +15,9 @@ Por ejemplo, en la siguiente imagen se muestra un panel con información de la d
 
 ## ¿Qué es un dashboard?
 
-Un dashboard es un conjunto de paneles que se pueden agrupar para mostrar información de forma visual, este concepto de dashboard o tablero es tomado de los tableros de instrumentos de los automóviles brindando a los conductores información de forma visual sobre el estado del vehículo. Del mismo modo, los paneles digitales nos ayuda a comprender y gestionar los sistemas.
+Un dashboard o tablero es un conjunto de paneles que se pueden agrupar para mostrar información de forma visual. Así mismo, los paneles ayudan a comprender y gestionar los sistemas.
 
-Por ahora, en Artemis tenemos un dashboard por cada prueba de rendimiento y el monitoreo de los servicios, la siguiente imagen ilustra un dashboard con información de la prueba de rendimiento.
+En ARTEMIS, tenemos un dashboard para cada prueba de **rendimiento** y **monitoreo** de servicios. La siguiente imagen ilustra un dashboard con información de una prueba de rendimiento.
 
 ![Dashboard pruebas de rendimiento](/img/docs/artemis/Dashboard_Pruebas_rendimiento.webp)
 
