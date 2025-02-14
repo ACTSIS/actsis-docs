@@ -43,7 +43,7 @@ export default function Home() {
 				¡Nunca querrás volver atrás!
 			</ImageAndText>
 
-			<div id='get-started'>
+{/* 			<div id='get-started'>
 				<CtaCards
 					title='Documentos'
 					subtitle="Documentación más relevante."
@@ -56,7 +56,7 @@ export default function Home() {
 						}
 					]}
 				/>
-			</div>
+			</div> */}
 
 			<FeatureShowcase
 				title='Servicio de monitoreo'
@@ -64,6 +64,7 @@ export default function Home() {
 				velamos por tu servicio, sin descansar.
 				disponibilidad y rendimiento a la par,
 				tu mejor experiencia queremos garantizar.'
+				buttonUrl='/docs/Artemis'
 				imageUrl={useBaseUrl(`img/homepage/block-editor.webp`)}
 				gray
 				sticky
