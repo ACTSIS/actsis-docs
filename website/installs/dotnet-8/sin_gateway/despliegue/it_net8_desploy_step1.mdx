@@ -1,0 +1,22 @@
+---
+id: it_net8_desploy_step1_sin_gateway
+title: Pasos de despliegue sin Gateway
+sidebar_label: Pasos de despliegue
+description: Guía de despliegue para instalación de .NET 8 sin Gateway
+---
+
+# Pasos de despliegue sin Gateway
+
+Esta página contiene los pasos para desplegar una aplicación .NET 8 sin Gateway.
+
+## Pasos iniciales
+
+1. Descargar el instalador
+2. Ejecutar el instalador como administrador
+3. Configurar sitio en IIS
+
+## Configuración básica
+
+- Crear nuevo Application Pool con identidad NetworkService
+- Agregar sitio web apuntando al directorio de instalación
+- Habilitar Autenticación Windows

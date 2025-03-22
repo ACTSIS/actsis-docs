@@ -1,4 +1,6 @@
-const { themes } = require('prism-react-renderer');
+const {
+    themes
+} = require('prism-react-renderer');
 const lightTheme = themes.github;
 const darkTheme = themes.dracula;
 
@@ -18,6 +20,11 @@ module.exports = {
         defaultLocale: 'es',
         locales: ['es'],
     },
+    // Configuración de Mermaid
+    markdown: {
+        mermaid: true,
+    },
+    themes: ['@docusaurus/theme-mermaid'],
     scripts: [{
         src: 'https://buttons.github.io/buttons.js',
         async: true,
@@ -36,7 +43,7 @@ module.exports = {
                     position: 'right',
                 },
                 {
-                    to: '/installs/welcome',
+                    to: '/installs/instalacion-iis',
                     activeBasePath: 'installs',
                     label: 'Instalaciones',
                     position: 'right',
@@ -104,6 +111,7 @@ module.exports = {
                     customCss: [
                         require.resolve('./src/theme/styles.css'),
                         require.resolve('@actsis/docusaurus-theme/dist/style.css'),
+                        require.resolve('./src/css/custom.css'),
                     ],
                 },
                 blog: {

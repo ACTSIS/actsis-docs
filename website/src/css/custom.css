@@ -1,0 +1,8 @@
+/**
+ * Estilos personalizados para sobrescribir el tema predeterminado
+ */
+
+/* Aumentar el ancho máximo del contenido principal */
+main .container article {
+    max-width: 100%;
+}

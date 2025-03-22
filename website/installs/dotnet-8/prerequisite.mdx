@@ -1,0 +1,95 @@
+---
+id: dotnet-8-prerequisitos
+title: Prerrequisitos para .NET 8
+sidebar_label: Prerrequisitos .NET 8
+description: Requisitos previos comunes para todas las instalaciones de .NET 8
+---
+
+# Prerrequisitos para .NET 8
+
+Esta página contiene los requisitos previos comunes para todas las instalaciones basadas en .NET 8, independientemente del tipo de instalación que elija.
+
+## Requisitos del sistema
+
+### Hardware recomendado
+
+- **CPU**: Procesador x64 de 2GHz o superior (4 núcleos recomendado para instalaciones con Gateway)
+- **Memoria**:
+  - 4GB RAM mínimo para instalación estándar
+  - 8GB RAM mínimo para instalación con Gateway y ConfigHandler
+- **Almacenamiento**: 10GB de espacio libre en disco
+
+### Software base
+
+- **Sistema Operativo**: Windows Server 2016 o superior
+- **IIS**: Versión 10 o superior con los siguientes módulos:
+  - ASP.NET 4.8
+  - Autenticación de Windows
+  - Compresión Dinámica
+  - WebSocket Protocol
+:::info
+Requiere **ASP.NET Core Module v2**.
+:::
+- **.NET Framework**: 4.8
+- **.NET Runtime**: .NET 8 Runtime (Windows Hosting Bundle)
+
+## Instalación de componentes necesarios
+
+### Paso 1: Instalar IIS y sus componentes
+
+- Abra el **Panel de control** > **Programas** > **Activar o desactivar las características de Windows**
+- Avanza hasta llegar a la sección **Roles del servidor** y Seleccione **Web Server (IIS)** o **Servicios de Internet Information Server (IIS)**.
+
+![RolesAndFeacturesWizard](/img/docs/it/.net8/RolesAndFeacturesWizard.webp)
+
+- En la sección de **features (características)**, busca y selecciona **WebSocket Protocol**.
+- Asegurese de tener los sigueintes **Roles y características** instalados:
+  - .NET Extensibility 3.5
+  - .NET Extensibility 34.8
+  - Application Initialization
+  - ASP
+  - ASP.NET 3.5
+  - ASP.NET 4.8
+  - CGI
+  - ISAPI Extensions
+  - ISAPI Filters
+  - Server Side Includes
+  - **WebSocket Protocol**
+![SelectRoleServicesWizard](/img/docs/it/.net8/SelectRoleServicesWizard.webp)
+
+### Paso 3: Instalar .NET 8 Runtime
+
+1. Descargue el Windows **Hosting Bundle** desde [la página oficial de .NET](https://dotnet.microsoft.com/download/dotnet/8.0)
+2. Ejecute el instalador `dotnet-hosting-8.0.x-win.exe`
+3. Siga las instrucciones del asistente de instalación
+4. Reinicie IIS después de la instalación:
+
+```powershell
+net stop was /y
+net start w3svc
+```
+
+## PAso 3: Verificación de prerrequisitos
+
+Puede verificar que todos los componentes necesarios estén instalados correctamente mediante los siguientes comandos PowerShell:
+
+```powershell
+# Verificar características de IIS instaladas
+Get-WindowsFeature -Name Web-* | Where-Object { $_.Name -match "Net-Ext|App-Init|ASP|CGI|ISAPI|Includes|WebSockets" } | Format-Table -Property Name, InstallState
+```
+
+```powershell
+# Verificar instalación de .NET Framework
+Reg Query "HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" /v Release
+```
+```powershell
+# Verificar instalación de .NET Runtime
+dotnet --info
+```
+
+## Siguientes pasos
+
+Una vez que haya verificado que todos los prerrequisitos están instalados correctamente, puede proceder con la instalación de ACTSIS según el tipo de instalación que necesite:
+
+- [Instalación Estándar](./default/despliegue/it_net8_desploy_step1)
+- [Instalación sin Gateway](./sin_gateway/despliegue/it_net8_desploy_step1_sin_gateway)

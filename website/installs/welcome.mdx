@@ -1,30 +1,98 @@
 ---
-id: welcome
-description: Create a doc page with rich content.
-slug: /welcome
+id: iis-instalacion
+description: Guía completa para la instalación en servidores IIS
+slug: /instalacion-iis
 tags:
-  - Releases
-  - docusaurus
+  - Instalación
+  - IIS
+  - Windows Server
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-# ACTSIS
+# Instalación en IIS
 
-Are you ready to create the documentation site for your open source project?
+Guía oficial para implementar nuestras soluciones en entornos Microsoft IIS.
 
-## Headers
+:::tip Tipos de instalación
+Seleccione el tipo de instalación que necesita según sus requerimientos:
+- **Instalación Estándar**: Implementación básica sin Gateway ni ConfigHandler
+- **Instalación Avanzada**: Implementación completa con Gateway y ConfigHandler
+:::
 
-will show up on the table of contents on the upper right
+## Requisitos Previos
 
-So that your users will know what this page is all about without scrolling down or even without reading too much.
+### Requisitos para instalación estándar
 
-## Only h2 and h3 will be in the TOC by default.
+- Windows Server 2016 o superior
+- IIS 10+ con los siguientes módulos:
+  - ASP.NET 4.8
+  - Autenticación de Windows
+  - Compresión Dinámica
+- .NET Framework 4.8
+- 4GB RAM mínimo (8GB recomendado)
+- 2GHz procesador x64
 
-You can configure the TOC heading levels either per-document or in the theme configuration.
 
-The headers are well-spaced so that the hierarchy is clear.
+:::info Guía detallada de prerrequisitos
+Para una guía completa y detallada sobre la instalación de todos los prerrequisitos necesarios, consulte nuestra [Guía de Prerrequisitos para .NET 8](./dotnet-8/dotnet-8-prerequisitos).
+:::
 
-- lists will help you
-- present the key points
-- that you want your users to remember
-  - and you may nest them
-    - multiple times
+## Solución de Problemas Comunes
+
+<Tabs>
+<TabItem value="estandar" label="Instalación Estándar">
+
+### Problemas en instalación estándar
+
+❌ **Error 500.19**
+Verificar permisos en el directorio de instalación:
+```powershell
+icacls "C:\ACTSoftware" /grant "IIS_IUSRS:(OI)(CI)RX"
+```
+
+❌ **Servicio no inicia**
+Revisar dependencias .NET:
+```powershell
+dism /online /enable-feature /featurename:NetFx4-AdvSrvs
+```
+
+</TabItem>
+<TabItem value="avanzada" label="Instalación Avanzada">
+
+### Problemas en instalación con Gateway y ConfigHandler
+
+❌ **Error 500.19**
+Verificar permisos en el directorio de instalación:
+```powershell
+icacls "C:\ACTSoftware" /grant "IIS_IUSRS:(OI)(CI)RX"
+```
+
+❌ **Servicio no inicia**
+Revisar dependencias .NET:
+```powershell
+dism /online /enable-feature /featurename:NetFx4-AdvSrvs
+```
+
+❌ **Error en Gateway o ConfigHandler**
+Verificar instalación de ASP.NET Core Module v2:
+```powershell
+Get-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45
+```
+
+❌ **Error de conexión a Gateway**
+Verificar que WebSocket esté habilitado:
+```powershell
+Get-WindowsOptionalFeature -Online -FeatureName IIS-WebSockets
+```
+
+</TabItem>
+</Tabs>
+
+## Recursos Adicionales
+
+- [Configuración SSL en IIS](https://docs.actsis.com/docs/seguridad)
+- [Optimización de rendimiento](https://docs.actsis.com/docs/optimizacion)
+- [Soporte Técnico](mailto:soporte@actsis.com)
+
+> ℹ️ Para configuraciones avanzadas consultar nuestra [documentación técnica](https://docs.actsis.com/docs/avanzado)

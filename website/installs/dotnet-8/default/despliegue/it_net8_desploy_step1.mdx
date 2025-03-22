@@ -1,8 +1,85 @@
 ---
-title: Setup
+title: Pasos de despliegue con Gateway
+sidebar_label: Pasos de despliegue
+description: Guía de despliegue para instalación de .NET 8 con Gateway
 ---
 
 ### Paso 1: Creación del Sitio para el Gateway
+
+```mermaid
+flowchart TD
+    %% Clientes externos y aplicaciones web
+    subgraph Clientes["Clientes y Aplicaciones Web"]
+        CLIENTE["CLIENTE EXTERNO\nConsume las API's"]
+        GEN_WEB["GEN\nWEB"]
+        SAC_WEB["Sac\nWEB"]
+        SACCONSULTAS_WEB["SacConsultas\nWEB"]
+        SAN_WEB["SAN\nWEB"]
+        CRM_WEB["CRM\nWEB"]
+    end
+
+    %% Gateway central
+    GATEWAY["ACTSIS Master\nGateway API\nNET 8"]
+
+    %% APIs y servicios
+    subgraph APIs["APIs y Servicios"]
+        CONFIG["ConfigHandler\nAPI"]
+        SAN_API["San\nAPI"]
+        GENREPORTES_API["GenReportesRest\nAPI"]
+        SAC_API["Sac\nAPI"]
+        GEN_API["Gen\nAPI"]
+        SACFACTURACION_API["SacFacturacion\nAPI"]
+        SACCONSULTAS_API["SacConsultas\nAPI"]
+        SACCLIENTES_API["SacClientes\nAPI"]
+        SACTRANSFORMADOR_API["SacTransformador\nAPI"]
+        SACPROCESOS_API["SacProcesos\nAPI"]
+        SACWS["SACWS"]
+    end
+
+    %% Base de datos centralizada
+    DB[("Base de Datos\nCentralizada")]
+
+    %% Conexiones de clientes al Gateway
+    CLIENTE --> GATEWAY
+    GEN_WEB --> GATEWAY
+    SAC_WEB --> GATEWAY
+    SACCONSULTAS_WEB --> GATEWAY
+    SAN_WEB --> GATEWAY
+    CRM_WEB --> GATEWAY
+
+    %% Conexiones del Gateway a las APIs
+    GATEWAY --> CONFIG
+    GATEWAY --> SAN_API
+    GATEWAY --> GENREPORTES_API
+    GATEWAY --> SAC_API
+    GATEWAY --> GEN_API
+    GATEWAY --> SACFACTURACION_API
+    GATEWAY --> SACCONSULTAS_API
+    GATEWAY --> SACCLIENTES_API
+    GATEWAY --> SACTRANSFORMADOR_API
+    GATEWAY --> SACPROCESOS_API
+    GATEWAY --> SACWS
+
+    %% Conexiones de las APIs a la base de datos
+    CONFIG --> DB
+    SAN_API --> DB
+    GENREPORTES_API --> DB
+    SAC_API --> DB
+    GEN_API --> DB
+    SACFACTURACION_API --> DB
+    SACCONSULTAS_API --> DB
+    SACCLIENTES_API --> DB
+    SACTRANSFORMADOR_API --> DB
+    SACPROCESOS_API --> DB
+    SACWS --> DB
+
+    %% Anotaciones para controladores específicos
+    GEN_API -.- |"Personas/consultar INT - controller\n-Modelo Español\nPK PERSONAS SW - SAC_CNX"| nota1[" "]
+    GEN_API -.- |"Persons/get - controller\n-Modelo Inglés\nPK PERSONAS - CRM_CNX /SAC_CNX/ SAN_CNX"| nota2[" "]
+    SACCLIENTES_API -.- |"Persons/get - controller\n-Modelo Inglés\nPK PERSONAS - CRM_CNX /SAC_CNX/ SAN_CNX"| nota3[" "]
+    SACWS -.- |"• Consultar Clientes\n• Consultar Procesos\n• Consultar Facturas"| nota4[" "]
+```
+
 1. **Copia de la Carpeta**:
 	- Copie la carpeta Gateway enviada en el despliegue dentro del servidor.
 2. **Creación del Grupo de Aplicación**:

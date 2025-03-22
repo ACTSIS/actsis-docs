@@ -1,0 +1,22 @@
+---
+id: it_net8_deploy_variables_sin_gateway
+title: Variables de despliegue sin Gateway
+sidebar_label: Variables de despliegue
+description: Variables necesarias para el despliegue de .NET 8 sin Gateway
+---
+
+# Variables de despliegue sin Gateway
+
+Esta página contiene las variables necesarias para el despliegue de una aplicación .NET 8 sin Gateway.
+
+## Variables de entorno
+
+- `ASPNETCORE_ENVIRONMENT`: Define el entorno de ejecución (Development, Staging, Production)
+- `DOTNET_PRINT_TELEMETRY_MESSAGE`: Controla los mensajes de telemetría
+- `DOTNET_SYSTEM_GLOBALIZATION_INVARIANT`: Configuración de globalización
+
+## Variables de aplicación
+
+- `ConnectionStrings__DefaultConnection`: Cadena de conexión a la base de datos
+- `Logging__LogLevel__Default`: Nivel de registro predeterminado
+- `AllowedHosts`: Hosts permitidos para la aplicación

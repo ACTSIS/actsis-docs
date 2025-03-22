@@ -2,3 +2,18 @@ docusaurus:
   label: 'Docusaurus'
   permalink: '/docusaurus'
   description: 'Docs related to the Docusaurus framework'
+
+Instalación:
+  label: 'Instalación'
+  permalink: '/tags/instalacion'
+  description: 'Documentos relacionados con procesos de instalación'
+
+IIS:
+  label: 'IIS'
+  permalink: '/tags/iis'
+  description: 'Documentos relacionados con Internet Information Services'
+
+'Windows Server':
+  label: 'Windows Server'
+  permalink: '/tags/windows-server'
+  description: 'Documentos relacionados con Windows Server'
