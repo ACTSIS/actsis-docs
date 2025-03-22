@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_actsis_docs=self.webpackChunk_actsis_docs||[]).push([[9720],{39720:(s,c,e)=>{e.d(c,{createArchitectureServices:()=>t.S});var t=e(49936);e(19369)}}]);

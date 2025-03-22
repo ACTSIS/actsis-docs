@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_actsis_docs=self.webpackChunk_actsis_docs||[]).push([[9829],{65734:s=>{s.exports=JSON.parse('{"tags":[{"label":"Releases","permalink":"/installs/tags/releases","count":1},{"label":"Docusaurus","permalink":"/installs/tags/docusaurus","description":"Docs related to the Docusaurus framework","count":1}]}')}}]);
