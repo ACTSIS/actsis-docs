@@ -1,0 +1,29 @@
+name: Auto Update Develop
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+  update-sgc-dev:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout 🛎
+          # https://github.com/actions/checkout
+          uses: actions/checkout@v3
+          with:
+            # check out all branches
+            fetch-depth: 0
+            # use a personal access token to commit
+            # the merged code and trigger CI actions
+            token: ${{ secrets.GITHUB_TOKEN }}
+        - name: Update Git branch sgc-dev
+          run: |
+            git config user.name "Update branch"
+            git config user.email github-actions@github.com
+            git checkout sgc-dev
+            git merge main --no-edit -m "Rama principal fusionada en $(date +%F)"
+        - name: Push the updated branch sgc-dev
+          run: |
+            git push origin sgc-dev
