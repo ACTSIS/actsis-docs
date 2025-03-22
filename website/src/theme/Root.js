@@ -6,6 +6,7 @@ import { useLocation } from '@docusaurus/router';
 import React, { useState, useEffect } from 'react';
 import { PublicClientApplication, EventType } from '@azure/msal-browser';
 import { MsalProvider, AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
+import ChatWidget from './ChatWidget';
 
 // Detectar entorno de desarrollo
 const isDevEnvironment = process.env.NODE_ENV === 'development';
@@ -71,13 +72,18 @@ export default function Root({ children }) {
         <>
             {isDevEnvironment ? (
                 // Modo desarrollo: Bypass completo de autenticación
-                children
+                <>
+                    {children}
+                </>
             ) : (
                 // Modo producción: Lógica original de autenticación
                 <MsalProvider instance={msalInstance}>
                     {isProtectedRoute ? (
                         <>
-                            <AuthenticatedTemplate>{children}</AuthenticatedTemplate>
+                            <AuthenticatedTemplate>
+                                {children}
+                                <ChatWidget />
+                            </AuthenticatedTemplate>
                             <UnauthenticatedTemplate>
                                 <Login
                                     msalInstance={msalInstance}
@@ -86,7 +92,10 @@ export default function Root({ children }) {
                             </UnauthenticatedTemplate>
                         </>
                     ) : (
-                        children
+                        <>
+                            {children}
+                            <ChatWidget />
+                        </>
                     )}
                 </MsalProvider>
             )}
