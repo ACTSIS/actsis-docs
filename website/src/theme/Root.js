@@ -1,11 +1,27 @@
 import Loading from './Loading';
-import { msalConfig } from './AuthConfig';
+import {
+    msalConfig
+} from './AuthConfig';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import { Login } from '@actsis/docusaurus-theme';
-import { useLocation } from '@docusaurus/router';
-import React, { useState, useEffect } from 'react';
-import { PublicClientApplication, EventType } from '@azure/msal-browser';
-import { MsalProvider, AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
+import {
+    Login
+} from '@actsis/docusaurus-theme';
+import {
+    useLocation
+} from '@docusaurus/router';
+import React, {
+    useState,
+    useEffect
+} from 'react';
+import {
+    PublicClientApplication,
+    EventType
+} from '@azure/msal-browser';
+import {
+    MsalProvider,
+    AuthenticatedTemplate,
+    UnauthenticatedTemplate
+} from "@azure/msal-react";
 import ChatWidget from './ChatWidget';
 
 // Detectar entorno de desarrollo
@@ -17,7 +33,9 @@ if (!isDevEnvironment) {
     msalInstance = new PublicClientApplication(msalConfig);
 }
 
-export default function Root({ children }) {
+export default function Root({
+    children
+}) {
     const [authLoading, setAuthLoading] = useState(!isDevEnvironment);
     const [activeAccount, setActiveAccount] = useState(null);
     const location = useLocation();
@@ -63,42 +81,59 @@ export default function Root({ children }) {
     }, []);
 
     if (authLoading) {
-        return <Loading />;
+        return <Loading / > ;
     }
 
     const isProtectedRoute = location.pathname.startsWith('/installs');
 
-    return (
-        <>
-            {isDevEnvironment ? (
+    return ( <
+        >
+        {
+            isDevEnvironment ? (
                 // Modo desarrollo: Bypass completo de autenticación
-                <>
-                    {children}
-                </>
+                <
+                >
+                {
+                    children
+                } <
+                />
             ) : (
                 // Modo producción: Lógica original de autenticación
-                <MsalProvider instance={msalInstance}>
-                    {isProtectedRoute ? (
-                        <>
-                            <AuthenticatedTemplate>
-                                {children}
-                                <ChatWidget />
-                            </AuthenticatedTemplate>
-                            <UnauthenticatedTemplate>
-                                <Login
-                                    msalInstance={msalInstance}
-                                    setAuthLoading={setAuthLoading}
-                                />
-                            </UnauthenticatedTemplate>
-                        </>
-                    ) : (
-                        <>
-                            {children}
-                            <ChatWidget />
-                        </>
-                    )}
-                </MsalProvider>
-            )}
-        </>
+                <
+                MsalProvider instance = {
+                    msalInstance
+                } > {
+                    isProtectedRoute ? ( <
+                        >
+                        <
+                        AuthenticatedTemplate > {
+                            children
+                        } <
+                        ChatWidget / >
+                        <
+                        /AuthenticatedTemplate> <
+                        UnauthenticatedTemplate >
+                        <
+                        Login msalInstance = {
+                            msalInstance
+                        }
+                        setAuthLoading = {
+                            setAuthLoading
+                        }
+                        /> < /
+                        UnauthenticatedTemplate > <
+                        />
+                    ) : ( <
+                        >
+                        {
+                            children
+                        } <
+                        />
+                    )
+                } <
+                /MsalProvider>
+            )
+        } <
+        />
     );
 }
