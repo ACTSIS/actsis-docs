@@ -10,6 +10,7 @@ hide_table_of_contents: false
 ---
 
 Para el continuo mejoramiento de nuestros servicios, hemos agregado nuevos paneles al tablero de monitoreo y pruebas de rendimiento. Estos paneles proporcionan información valiosa sobre la disponibilidad y el rendimiento de nuestros servicios, lo que nos permite identificar y resolver problemas de manera proactiva.
+
 <!--truncate-->
 
 ## Panel de Tasa de Disponibilidad en dashboard de monitoreo
@@ -26,11 +27,11 @@ Este panel muestra el tiempo de respuesta promedio de todas las solicitudes real
 
 ![Promedio General de Respuesta](/img/docs/artemis/performance/promedio-general-respuesta.webp)
 
-| Status | Time |color|
-|--------|------|-----|
-| Bueno | Menor a 1 segundo | Verde |
+| Status  | Time                 | color    |
+| ------- | -------------------- | -------- |
+| Bueno   | Menor a 1 segundo    | Verde    |
 | Regular | Entre 1 y 3 segundos | Amarillo |
-| Malo | Mayor a 3 segundos | Rojo |
+| Malo    | Mayor a 3 segundos   | Rojo     |
 
 > Actsis le garantiza a sus clientes un tiempo de respuesta menor a 5 segundo.
 

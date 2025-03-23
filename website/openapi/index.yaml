@@ -45,19 +45,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/IPResponse'
+                $ref: "#/components/schemas/IPResponse"
               examples:
                 237.71.232.203:
                   value: >-
                     {"year":2025,"month":1,"day":20,"hour":3,"minute":8,"seconds":10,"milliSeconds":76,"dateTime":"2025-01-20T03:08:10.0763296","date":"01/20/2025","time":"03:08","timeZone":"UTC","dayOfWeek":"Monday","dstActive":false}
-        '400':
+        "400":
           description: Invalid request parameters.
-        '500':
+        "500":
           description: Internal server error.
   /time/api/time/current/zone:
     get:
@@ -74,19 +74,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ZoneResponse'
+                $ref: "#/components/schemas/ZoneResponse"
               examples:
                 America/Bogota:
                   value: >-
                     {"year":2025,"month":1,"day":19,"hour":22,"minute":25,"seconds":28,"milliSeconds":834,"dateTime":"2025-01-19T22:25:28.8341654","date":"01/19/2025","time":"22:25","timeZone":"America/Bogota","dayOfWeek":"Sunday","dstActive":false}
-        '400':
+        "400":
           description: Invalid request parameters.
-        '500':
+        "500":
           description: Internal server error.
 components:
   schemas:

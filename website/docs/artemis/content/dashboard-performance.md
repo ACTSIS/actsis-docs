@@ -11,7 +11,7 @@ Para el desarrollo de este tablero se utilizó la tecnología de JMeter, la cual
 
 Se refiere a la base de datos seleccionada la cual es acorde a las pruebas de rendimiento realizadas, no se pueden seleccionar varias bases de datos a la vez.
 
-### Solicitud - Solicitud  individual
+### Solicitud - Solicitud individual
 
 Se refiere a la solicitud seleccionada en la parte superior del tablero, no se pueden seleccionar varias solicitudes a la vez. Esta es utilizada para la sección de [análisis por peticiones individuales.](#análisis-por-peticiones-individuales).
 
@@ -91,29 +91,29 @@ Este panel muestra el tiempo de respuesta promedio de todas las solicitudes real
 
 ![Promedio General de Respuesta](/img/docs/artemis/performance/promedio-general-respuesta.webp)
 
-| Status | Time |
-|--------|------|
-| Bueno | Menor a 1 segundo |
+| Status  | Time                 |
+| ------- | -------------------- |
+| Bueno   | Menor a 1 segundo    |
 | Regular | Entre 1 y 3 segundos |
-| Malo | Mayor a 3 segundos |
+| Malo    | Mayor a 3 segundos   |
 
 ### Métricas generales
 
 Estos paneles incluye una variedad de estadísticas sobre las solicitudes realizadas durante la ejecución del plan de pruebas. Estas métricas incluyen:
 
-| Métrica                       | Descripción                                                                 |
-|-------------------------------|-----------------------------------------------------------------------------|
-| Conteo de solicitudes         | El número total de solicitudes realizadas.                                   |
-| Media                         | El tiempo de respuesta medio de todas las solicitudes.                       |
-| Máximo                        | El tiempo de respuesta máximo de todas las solicitudes.                      |
-| Mediana                       | El tiempo de respuesta que divide a las solicitudes en dos partes iguales.   |
-| Percentil 90%                 | El tiempo de respuesta por debajo del cual el 90% de las solicitudes se encuentran. |
-| Percentil 95%                 | El tiempo de respuesta por debajo del cual el 95% de las solicitudes se encuentran. |
-| Percentil 99%                 | El tiempo de respuesta por debajo del cual el 99% de las solicitudes se encuentran. |
-| TPS (transacciones por segundo) | La cantidad de transacciones que se están realizando por segundo.            |
-| TRM (tiempo de respuesta medio) | El tiempo de respuesta promedio de todas las transacciones.                  |
-| TPH (transacciones por hora)    | La cantidad de transacciones que se están realizando por hora.               |
-| Tasa de error                 | El porcentaje de solicitudes que fallaron en comparación con el total de solicitudes. |
+| Métrica                         | Descripción                                                                           |
+| ------------------------------- | ------------------------------------------------------------------------------------- |
+| Conteo de solicitudes           | El número total de solicitudes realizadas.                                            |
+| Media                           | El tiempo de respuesta medio de todas las solicitudes.                                |
+| Máximo                          | El tiempo de respuesta máximo de todas las solicitudes.                               |
+| Mediana                         | El tiempo de respuesta que divide a las solicitudes en dos partes iguales.            |
+| Percentil 90%                   | El tiempo de respuesta por debajo del cual el 90% de las solicitudes se encuentran.   |
+| Percentil 95%                   | El tiempo de respuesta por debajo del cual el 95% de las solicitudes se encuentran.   |
+| Percentil 99%                   | El tiempo de respuesta por debajo del cual el 99% de las solicitudes se encuentran.   |
+| TPS (transacciones por segundo) | La cantidad de transacciones que se están realizando por segundo.                     |
+| TRM (tiempo de respuesta medio) | El tiempo de respuesta promedio de todas las transacciones.                           |
+| TPH (transacciones por hora)    | La cantidad de transacciones que se están realizando por hora.                        |
+| Tasa de error                   | El porcentaje de solicitudes que fallaron en comparación con el total de solicitudes. |
 
 ![Métricas generales](/img/docs/artemis/performance/metricas-generales.webp)
 

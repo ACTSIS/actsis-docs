@@ -27,9 +27,9 @@ Esta página contiene los requisitos previos comunes para todas las instalacione
   - Autenticación de Windows
   - Compresión Dinámica
   - WebSocket Protocol
-:::info
-Requiere **ASP.NET Core Module v2**.
-:::
+    :::info
+    Requiere **ASP.NET Core Module v2**.
+    :::
 - **.NET Framework**: 4.8
 - **.NET Runtime**: .NET 8 Runtime (Windows Hosting Bundle)
 
@@ -55,7 +55,7 @@ Requiere **ASP.NET Core Module v2**.
   - ISAPI Filters
   - Server Side Includes
   - **WebSocket Protocol**
-![SelectRoleServicesWizard](/img/docs/it/.net8/SelectRoleServicesWizard.webp)
+    ![SelectRoleServicesWizard](/img/docs/it/.net8/SelectRoleServicesWizard.webp)
 
 ### Paso 3: Instalar .NET 8 Runtime
 
@@ -82,6 +82,7 @@ Get-WindowsFeature -Name Web-* | Where-Object { $_.Name -match "Net-Ext|App-Init
 # Verificar instalación de .NET Framework
 Reg Query "HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" /v Release
 ```
+
 ```powershell
 # Verificar instalación de .NET Runtime
 dotnet --info

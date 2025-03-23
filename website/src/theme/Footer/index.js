@@ -1,14 +1,12 @@
-import React from 'react';
-import { useThemeConfig } from '@docusaurus/theme-common';
+import React from "react";
+import { useThemeConfig } from "@docusaurus/theme-common";
 
-import { Footer as ActsisFooter } from '@actsis/docusaurus-theme';
+import { Footer as ActsisFooter } from "@actsis/docusaurus-theme";
 
 function Footer() {
-	const { footer } = useThemeConfig();
+  const { footer } = useThemeConfig();
 
-	return (
-		<ActsisFooter footer={footer} />
-	);
+  return <ActsisFooter footer={footer} />;
 }
 
 export default React.memo(Footer);

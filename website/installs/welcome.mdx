@@ -7,8 +7,9 @@ tags:
   - IIS
   - Windows Server
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 # Instalación en IIS
 
@@ -16,9 +17,10 @@ Guía oficial para implementar nuestras soluciones en entornos Microsoft IIS.
 
 :::tip Tipos de instalación
 Seleccione el tipo de instalación que necesita según sus requerimientos:
+
 - **Instalación Estándar**: Implementación básica sin Gateway ni ConfigHandler
 - **Instalación Avanzada**: Implementación completa con Gateway y ConfigHandler
-:::
+  :::
 
 ## Requisitos Previos
 
@@ -33,7 +35,6 @@ Seleccione el tipo de instalación que necesita según sus requerimientos:
 - 4GB RAM mínimo (8GB recomendado)
 - 2GHz procesador x64
 
-
 :::info Guía detallada de prerrequisitos
 Para una guía completa y detallada sobre la instalación de todos los prerrequisitos necesarios, consulte nuestra [Guía de Prerrequisitos para .NET 8](./dotnet-8/dotnet-8-prerequisitos).
 :::
@@ -47,12 +48,14 @@ Para una guía completa y detallada sobre la instalación de todos los prerrequi
 
 ❌ **Error 500.19**
 Verificar permisos en el directorio de instalación:
+
 ```powershell
 icacls "C:\ACTSoftware" /grant "IIS_IUSRS:(OI)(CI)RX"
 ```
 
 ❌ **Servicio no inicia**
 Revisar dependencias .NET:
+
 ```powershell
 dism /online /enable-feature /featurename:NetFx4-AdvSrvs
 ```
@@ -64,24 +67,28 @@ dism /online /enable-feature /featurename:NetFx4-AdvSrvs
 
 ❌ **Error 500.19**
 Verificar permisos en el directorio de instalación:
+
 ```powershell
 icacls "C:\ACTSoftware" /grant "IIS_IUSRS:(OI)(CI)RX"
 ```
 
 ❌ **Servicio no inicia**
 Revisar dependencias .NET:
+
 ```powershell
 dism /online /enable-feature /featurename:NetFx4-AdvSrvs
 ```
 
 ❌ **Error en Gateway o ConfigHandler**
 Verificar instalación de ASP.NET Core Module v2:
+
 ```powershell
 Get-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45
 ```
 
 ❌ **Error de conexión a Gateway**
 Verificar que WebSocket esté habilitado:
+
 ```powershell
 Get-WindowsOptionalFeature -Online -FeatureName IIS-WebSockets
 ```

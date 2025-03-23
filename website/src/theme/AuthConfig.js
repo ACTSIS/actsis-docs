@@ -1,5 +1,5 @@
 import { LogLevel } from "@azure/msal-browser";
-const { customFields } = require('../../docusaurus.config.js');
+const { customFields } = require("../../docusaurus.config.js");
 
 /**
  * Configuration object to be passed to MSAL instance on creation.
@@ -8,42 +8,42 @@ const { customFields } = require('../../docusaurus.config.js');
  */
 
 export const msalConfig = {
-    auth: {
-        clientId: customFields.authConfig.clientId,
-        authority: customFields.authConfig.authority,
-        redirectUri: customFields.authConfig.redirectUri,
-        postLogoutRedirectUri: customFields.authConfig.postLogoutRedirectUri,
-    },
+  auth: {
+    clientId: customFields.authConfig.clientId,
+    authority: customFields.authConfig.authority,
+    redirectUri: customFields.authConfig.redirectUri,
+    postLogoutRedirectUri: customFields.authConfig.postLogoutRedirectUri,
+  },
 
-    cache: {
-        cacheLocation: "localStorage",
-        storeAuthStateInCookie: false,
-    },
-    system: {
-        loggerOptions: {
-            loggerCallback: (level, message, containsPii) => {
-                if (containsPii) {
-                    console.log(message);
-                }
-                switch (level) {
-                    case LogLevel.Error:
-                        console.error(message);
-                        return;
-                    case LogLevel.Info:
-                        console.info(message);
-                        return;
-                    case LogLevel.Verbose:
-                        console.debug(message);
-                        return;
-                    case LogLevel.Warning:
-                        console.warn(message);
-                        return;
-                    default:
-                        return;
-                }
-            }
+  cache: {
+    cacheLocation: "localStorage",
+    storeAuthStateInCookie: false,
+  },
+  system: {
+    loggerOptions: {
+      loggerCallback: (level, message, containsPii) => {
+        if (containsPii) {
+          console.log(message);
         }
-    }
+        switch (level) {
+          case LogLevel.Error:
+            console.error(message);
+            return;
+          case LogLevel.Info:
+            console.info(message);
+            return;
+          case LogLevel.Verbose:
+            console.debug(message);
+            return;
+          case LogLevel.Warning:
+            console.warn(message);
+            return;
+          default:
+            return;
+        }
+      },
+    },
+  },
 };
 
 /**
@@ -51,5 +51,5 @@ export const msalConfig = {
  * By default, MSAL.js will add OIDC scopes (openid, profile, email) to any login request.
  */
 export const loginRequest = {
-    scopes: ["User.Read"],
+  scopes: ["User.Read"],
 };

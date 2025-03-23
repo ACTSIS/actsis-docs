@@ -1,7 +1,7 @@
 // src/theme/Loading.js
-import React from 'react';
+import React from "react";
 
-const Loading = props => {
+const Loading = (props) => {
   return (
     <div className="overlay">
       <div className="overlayDoor" />

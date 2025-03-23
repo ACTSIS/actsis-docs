@@ -125,12 +125,14 @@ Aquí tienes una versión más clara y sin términos técnicos complejos:
 La **duración de la prueba** mide el tiempo que tarda un sistema de monitoreo en obtener una respuesta de un servicio o recurso. Este indicador refleja la rapidez o lentitud con la que un servicio responde a las solicitudes.
 
 #### ¿Por qué es importante?
+
 La duración de la prueba es una métrica clave para evaluar el rendimiento y la estabilidad de un servicio web. Puede ayudar a identificar dos posibles situaciones:
 
 1. **Demora excesiva:** Si el tiempo es alto (por ejemplo, varios segundos), podría significar que el servicio está sobrecargado, tiene problemas de rendimiento o enfrenta latencia en la red. Esto podría afectar negativamente la experiencia del usuario.
 2. **Tiempo inusualmente corto:** Si el tiempo es demasiado bajo, podría indicar que la prueba no está evaluando completamente el estado del servicio, lo que podría generar resultados poco fiables.
 
 #### Ejemplo:
+
 Un sistema de monitoreo realiza pruebas periódicas para verificar que un servicio esté funcionando correctamente. Si la duración de la prueba es alta (por ejemplo, más de 3 segundos), podría ser señal de que el servicio está tardando demasiado en responder, lo que puede indicar un problema que requiere atención.
 
 ![Panel](/img/docs/artemis/grafana-panel.webp)

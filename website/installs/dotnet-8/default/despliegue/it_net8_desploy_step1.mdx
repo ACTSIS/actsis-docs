@@ -81,15 +81,12 @@ flowchart TD
 ```
 
 1. **Copia de la Carpeta**:
-	- Copie la carpeta Gateway enviada en el despliegue dentro del servidor.
-2. **Creación del Grupo de Aplicación**:
-	- Cree un grupo de aplicaciones para Gateway, sugiriendo el nombre **`ActsisGateway`**, siguiendo los mismos pasos utilizados para las aplicaciones anteriores.
-![PoolApplication](/img/docs/it/.net8/20241203074227.webp)
+   - Copie la carpeta Gateway enviada en el despliegue dentro del servidor.
+2. **Creación del Grupo de Aplicación**: - Cree un grupo de aplicaciones para Gateway, sugiriendo el nombre **`ActsisGateway`**, siguiendo los mismos pasos utilizados para las aplicaciones anteriores.
+   ![PoolApplication](/img/docs/it/.net8/20241203074227.webp)
 
-
-3. **Creación del Sitio**:
-	- Cree un nuevo sitio con las mismas especificaciones que `GenReportesWS`, estableciendo la ruta de acceso física a la carpeta copiada de Gateway.
-![ConfSite](/img/docs/it/.net8/20241203083855.webp)
+3. **Creación del Sitio**: - Cree un nuevo sitio con las mismas especificaciones que `GenReportesWS`, estableciendo la ruta de acceso física a la carpeta copiada de Gateway.
+   ![ConfSite](/img/docs/it/.net8/20241203083855.webp)
 
 :::info
 
@@ -98,16 +95,14 @@ Endpoint de prueba **https://gateway.com/time/api/time/current/zone?timeZone=Ame
 :::
 
 ### Paso 2: Creación del Sitio para el **ConfigHandler**
+
 1. **Copia de la Carpeta**:
-	- Copie la carpeta `ConfigHandler` enviada en el despliegue dentro del servidor.
-2. **Creación del Grupo de Aplicación**:
-	- Cree un grupo de aplicaciones para Gateway, sugiriendo el nombre **ActsisConfigHandler**, siguiendo los mismos pasos utilizados para las aplicaciones anteriores.
-![PoolApplication](/img/docs/it/.net8/20241203084304.webp)
+   - Copie la carpeta `ConfigHandler` enviada en el despliegue dentro del servidor.
+2. **Creación del Grupo de Aplicación**: - Cree un grupo de aplicaciones para Gateway, sugiriendo el nombre **ActsisConfigHandler**, siguiendo los mismos pasos utilizados para las aplicaciones anteriores.
+   ![PoolApplication](/img/docs/it/.net8/20241203084304.webp)
 
-
-3. **Creación del Sitio**:
-	- Cree un nuevo sitio con las mismas especificaciones que **`GenReportesWS`**, estableciendo la ruta de acceso física a la carpeta copiada de **ConfigHandler**.
-![ConfSite](/img/docs/it/.net8/20241203084404.webp)
+3. **Creación del Sitio**: - Cree un nuevo sitio con las mismas especificaciones que **`GenReportesWS`**, estableciendo la ruta de acceso física a la carpeta copiada de **ConfigHandler**.
+   ![ConfSite](/img/docs/it/.net8/20241203084404.webp)
 
 :::info
 
@@ -116,23 +111,19 @@ Endpoint de prueba **https://config.com/config/api/config**.
 :::
 
 ### Paso 3: Actualización del Sitio de la Aplicación
-1. **Identificación de Carpetas**:
-	- Una vez actualizado el sitio de la aplicación SACNET, identifique 7 nuevas carpetas en el sitio llamadas **Sac**.
-![Tree](/img/docs/it/.net8/20241203085023.webp)
 
+1. **Identificación de Carpetas**: - Una vez actualizado el sitio de la aplicación SACNET, identifique 7 nuevas carpetas en el sitio llamadas **Sac**.
+   ![Tree](/img/docs/it/.net8/20241203085023.webp)
 
-2. **Creación de Grupos de Aplicación**:
-	- Se sugiera un nombre que identifique claramente a qué sistema y módulo pertenece, por ejemplo, la carpeta `ProcesosApi` debería ser llamada **SACProcesosApi**.
-> [!information]
-> La versión de .NET CLR es v4
+2. **Creación de Grupos de Aplicación**: - Se sugiera un nombre que identifique claramente a qué sistema y módulo pertenece, por ejemplo, la carpeta `ProcesosApi` debería ser llamada **SACProcesosApi**.
+   > [!information]
+   > La versión de .NET CLR es v4
 
 ![PoolApplication](/img/docs/it/.net8/20241203085310.webp)
-
 
 - Repítelo los mismos pasos para las demás aplicaciones `SACProcesosWeb`, `SACRedesApi`, `SACRedesWeb`, `SACRevisionesApi`, `SACRevisionesWeb`, `SACApi`.
 - Asignar el mismo usuario de Identidad del grupo de aplicación del sistema.
 
-3. **Conversión a Aplicaciones Web**:
-	- Las carpetas deben convertirse en aplicaciones web con un grupo de aplicación independiente creadas en el paso anterior.
-![Files](/img/docs/it/.net8/20241203085655.webp)
-![PoolApplication](/img/docs/it/.net8/20241203085659.webp)
+3. **Conversión a Aplicaciones Web**: - Las carpetas deben convertirse en aplicaciones web con un grupo de aplicación independiente creadas en el paso anterior.
+   ![Files](/img/docs/it/.net8/20241203085655.webp)
+   ![PoolApplication](/img/docs/it/.net8/20241203085659.webp)
