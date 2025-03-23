@@ -1,6 +1,9 @@
 import { LogLevel } from "@azure/msal-browser";
 const { customFields } = require("../../docusaurus.config.js");
 
+// Detectar entorno de desarrollo
+const isDevEnvironment = process.env.NODE_ENV === "development";
+
 /**
  * Configuration object to be passed to MSAL instance on creation.
  * For a full list of MSAL.js configuration parameters, visit:
@@ -22,6 +25,9 @@ export const msalConfig = {
   system: {
     loggerOptions: {
       loggerCallback: (level, message, containsPii) => {
+        // Solo mostrar logs en entorno de desarrollo
+        if (!isDevEnvironment) return;
+
         if (containsPii) {
           console.log(message);
         }

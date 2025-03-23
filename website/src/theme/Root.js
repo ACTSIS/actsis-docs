@@ -36,7 +36,9 @@ export default function Root({ children }) {
     const initializeMsal = async () => {
       try {
         await msalInstance.initialize();
-        console.log("MSAL inicializado correctamente");
+        if (isDevEnvironment) {
+          console.log("MSAL inicializado correctamente");
+        }
 
         const accounts = msalInstance.getAllAccounts();
         if (accounts.length > 0) {
@@ -44,7 +46,9 @@ export default function Root({ children }) {
           msalInstance.setActiveAccount(accounts[0]);
         }
       } catch (error) {
-        console.error("Error inicializando MSAL:", error);
+        if (isDevEnvironment) {
+          console.error("Error inicializando MSAL:", error);
+        }
       } finally {
         setAuthLoading(false);
       }
