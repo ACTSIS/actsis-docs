@@ -1,0 +1,48 @@
+name: Generate Embeddings
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    # Ejecutar semanalmente los lunes a las 2 AM
+    - cron: '0 2 * * 1'
+  workflow_dispatch: # Permite ejecutar el workflow manualmente
+
+jobs:
+  build-and-generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: ./embedding-workflow
+          push: false
+          load: true
+          tags: docs-embeddings-generator:latest
+
+      - name: Create .env file
+        run: |
+          cd embedding-workflow
+          echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" > .env
+          echo "SUPABASE_URL=${{ secrets.SUPABASE_URL }}" >> .env
+          echo "SUPABASE_KEY=${{ secrets.SUPABASE_KEY }}" >> .env
+          echo "EMBEDDING_MODEL=${{ secrets.EMBEDDING_MODEL || 'text-embedding-3-small' }}" >> .env
+          echo "BATCH_SIZE=${{ secrets.BATCH_SIZE || '100' }}" >> .env
+          echo "CHUNK_SIZE=${{ secrets.CHUNK_SIZE || '1000' }}" >> .env
+          echo "CHUNK_OVERLAP=${{ secrets.CHUNK_OVERLAP || '200' }}" >> .env
+          echo "EMBEDDING_TABLE=${{ secrets.EMBEDDING_TABLE || 'document_embeddings' }}" >> .env
+          echo "DOCS_DIR=/app/docs" >> .env
+          echo "DOCUMENT_ID=${{ secrets.DOCUMENT_ID || '1761' }}" >> .env
+
+      - name: Run embedding generation
+        run: |
+          docker run \
+            -v ${{ github.workspace }}/website/docs:/app/docs/docs \
+            -v ${{ github.workspace }}/website/installs:/app/docs/installs \
+            docs-embeddings-generator

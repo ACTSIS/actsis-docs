@@ -1,0 +1,13 @@
+supabase==1.0.3
+gotrue
+httpx
+openai==1.16.0
+python-dotenv==1.0.1
+beautifulsoup4==4.12.2
+markdown==3.4.4
+# Reemplazamos mdx-parser que no existe por paquetes que pueden procesar markdown avanzado
+mistune==2.0.5
+pyyaml==6.0.1
+nltk==3.8.1
+tqdm==4.66.1
+psycopg2-binary==2.9.9
