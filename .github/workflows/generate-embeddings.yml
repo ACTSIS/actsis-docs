@@ -3,9 +3,9 @@ name: Generate Embeddings
 on:
   push:
     branches: [ main ]
-  schedule:
+#  schedule:
     # Ejecutar semanalmente los lunes a las 2 AM
-    - cron: '0 2 * * 1'
+#    - cron: '0 2 * * 1'
   workflow_dispatch: # Permite ejecutar el workflow manualmente
 
 jobs:

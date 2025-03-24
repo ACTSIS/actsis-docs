@@ -6,7 +6,7 @@ on:
             - main
 
 jobs:
-  update-sgc-dev:
+  update-develop:
     runs-on: ubuntu-latest
     steps:
         - name: Checkout 🛎
@@ -18,12 +18,12 @@ jobs:
             # use a personal access token to commit
             # the merged code and trigger CI actions
             token: ${{ secrets.GITHUB_TOKEN }}
-        - name: Update Git branch sgc-dev
+        - name: Update Git branch develop
           run: |
             git config user.name "Update branch"
             git config user.email github-actions@github.com
-            git checkout sgc-dev
+            git checkout develop
             git merge main --no-edit -m "Rama principal fusionada en $(date +%F)"
-        - name: Push the updated branch sgc-dev
+        - name: Push the updated branch develop
           run: |
-            git push origin sgc-dev
+            git push origin develop
