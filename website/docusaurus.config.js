@@ -173,6 +173,9 @@ module.exports = {
       redirectUri: "https://docs.actsis.com",
       postLogoutRedirectUri: "/",
     },
+    chatConfig: {
+      webhookUrl: "https://n8n.rondon.cloud/webhook/0b30f927-3fb2-45d0-a1f8-7cf66ba053d0/chat",
+    },
     keywords: [
       "Actsis Docs",
       "Documentación",

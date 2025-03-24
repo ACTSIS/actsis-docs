@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
 import "@n8n/chat/style.css";
 import { createChat } from "@n8n/chat";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
 export default function ChatWidget() {
+  const {siteConfig} = useDocusaurusContext();
+  const {webhookUrl} = siteConfig.customFields.chatConfig;
+
   useEffect(() => {
     createChat({
-      webhookUrl:
-        "https://n8n.rondon.cloud/webhook/0b30f927-3fb2-45d0-a1f8-7cf66ba053d0/chat",
+      webhookUrl,
       // Configuración adicional (opcional)
       showWelcomeScreen: true,
       defaultLanguage: "es",
