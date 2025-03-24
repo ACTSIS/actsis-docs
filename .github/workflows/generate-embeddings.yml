@@ -42,7 +42,7 @@ jobs:
 
       - name: Run embedding generation
         run: |
-          docker run \
+          docker run --env-file embedding-workflow/.env \
             -v ${{ github.workspace }}/website/docs:/app/docs/docs \
             -v ${{ github.workspace }}/website/installs:/app/docs/installs \
             docs-embeddings-generator
